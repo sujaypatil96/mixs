@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -368,7 +368,7 @@
 
 
 <h1 id="combination-mimarksc-combined-with-water-mimarkscwater">Combination: MimarksC combined with Water (MimarksCWater)</h1>
-<p><em>MIxS data that complies with the MimarksC checklist and the Water Extension</em></p>
+<p><em>MIxS Data that comply with the MimarksC checklist and the Water Extension</em></p>
 <h2 id="composition">Composition</h2>
 <p><a href="../MimarksC/">MimarksC</a> [Checklist] + <a href="../Water/">Water</a> [Extension]</p>
 <h2 id="terms">Terms</h2>
@@ -463,7 +463,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000015">MIXS:0000015</a></td>
 <td><a href="../0000015/">rel_to_oxygen</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../RELTOOXYGENENUM/">RELTOOXYGENENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../RelToOxygenEnum/">RelToOxygenEnum</a></td>
 <td>Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic ...</td>
 </tr>
 <tr>
@@ -475,13 +475,13 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000028">MIXS:0000028</a></td>
 <td><a href="../0000028/">biotic_relationship</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../BIOTICRELATIONSHIPENUM/">BIOTICRELATIONSHIPENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../BioticRelationshipEnum/">BioticRelationshipEnum</a></td>
 <td>Description of relationship(s) between the subject organism and other organis...</td>
 </tr>
 <tr>
 <td><a href="https://w3id.org/mixs/0000051">MIXS:0000051</a></td>
 <td><a href="../0000051/">seq_quality_check</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../SEQQUALITYCHECKENUM/">SEQQUALITYCHECKENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../SeqQualityCheckEnum/">SeqQualityCheckEnum</a></td>
 <td>Indicate if the sequence has been called by automatic systems (none) or under...</td>
 </tr>
 <tr>
@@ -493,7 +493,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001321">MIXS:0001321</a></td>
 <td><a href="../0001321/">neg_cont_type</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../NEGCONTTYPEENUM/">NEGCONTTYPEENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../NegContTypeEnum/">NegContTypeEnum</a></td>
 <td>The substance or equipment used as a negative control in an investigation</td>
 </tr>
 <tr>
@@ -505,7 +505,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000032">MIXS:0000032</a></td>
 <td><a href="../0000032/">trophic_level</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../TROPHICLEVELENUM/">TROPHICLEVELENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../TrophicLevelEnum/">TrophicLevelEnum</a></td>
 <td>Trophic levels are the feeding position in a food chain</td>
 </tr>
 <tr>
@@ -883,7 +883,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000753">MIXS:0000753</a></td>
 <td><a href="../0000753/">oxy_stat_samp</a></td>
-<td>0..1 <br/> <a href="../OXYSTATSAMPENUM/">OXYSTATSAMPENUM</a></td>
+<td>0..1 <br/> <a href="../OxyStatSampEnum/">OxyStatSampEnum</a></td>
 <td>Oxygenation status of sample</td>
 </tr>
 <tr>
@@ -1039,7 +1039,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000750">MIXS:0000750</a></td>
 <td><a href="../0000750/">tidal_stage</a></td>
-<td>0..1 <br/> <a href="../TIDALSTAGEENUM/">TIDALSTAGEENUM</a></td>
+<td>0..1 <br/> <a href="../TidalStageEnum/">TidalStageEnum</a></td>
 <td>Stage of tide</td>
 </tr>
 <tr>
@@ -1099,7 +1099,7 @@
 <details>
 
 <pre><code class="language-yaml">name: MimarksCWater
-description: MIxS data that complies with the MimarksC checklist and the Water Extension
+description: MIxS Data that comply with the MimarksC checklist and the Water Extension
 title: MimarksC combined with Water
 in_subset:
 - combination_classes
@@ -1117,7 +1117,7 @@ class_uri: MIXS:0010009_0016014
 <details>
 
 <pre><code class="language-yaml">name: MimarksCWater
-description: MIxS data that complies with the MimarksC checklist and the Water Extension
+description: MIxS Data that comply with the MimarksC checklist and the Water Extension
 title: MimarksC combined with Water
 in_subset:
 - combination_classes
@@ -1563,7 +1563,7 @@ attributes:
     - MimarksS
     - Mims
     - Misag
-    range: REL_TO_OXYGEN_ENUM
+    range: RelToOxygenEnum
     recommended: true
   samp_collect_device:
     name: samp_collect_device
@@ -1614,7 +1614,7 @@ attributes:
     - MimarksC
     - Miuvig
     - Agriculture
-    range: BIOTIC_RELATIONSHIP_ENUM
+    range: BioticRelationshipEnum
     recommended: true
   seq_quality_check:
     name: seq_quality_check
@@ -1631,7 +1631,7 @@ attributes:
     - MimarksC
     - MimarksS
     - Agriculture
-    range: SEQ_QUALITY_CHECK_ENUM
+    range: SeqQualityCheckEnum
     recommended: true
   project_name:
     name: project_name
@@ -1711,7 +1711,7 @@ attributes:
     - Mims
     - Misag
     - Miuvig
-    range: NEG_CONT_TYPE_ENUM
+    range: NegContTypeEnum
     recommended: true
   chimera_check:
     name: chimera_check
@@ -1748,7 +1748,7 @@ attributes:
     - MigsEu
     - MimarksC
     - Agriculture
-    range: TROPHIC_LEVEL_ENUM
+    range: TrophicLevelEnum
     recommended: true
   pos_cont_type:
     name: pos_cont_type
@@ -3537,7 +3537,7 @@ attributes:
     - SymbiontAssociated
     - WastewaterSludge
     - Water
-    range: OXY_STAT_SAMP_ENUM
+    range: OxyStatSampEnum
   ph:
     name: ph
     description: Ph measurement of the sample, or liquid portion of sample, or aqueous
@@ -4251,7 +4251,7 @@ attributes:
     domain_of:
     - Sediment
     - Water
-    range: TIDAL_STAGE_ENUM
+    range: TidalStageEnum
   tot_depth_water_col:
     name: tot_depth_water_col
     annotations:
@@ -4519,7 +4519,7 @@ class_uri: MIXS:0010009_0016014
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

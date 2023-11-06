@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -368,7 +368,7 @@
 
 
 <h1 id="combination-migseu-combined-with-humanskin-migseuhumanskin">Combination: MigsEu combined with HumanSkin (MigsEuHumanSkin)</h1>
-<p><em>MIxS data that complies with the MigsEu checklist and the HumanSkin Extension</em></p>
+<p><em>MIxS Data that comply with the MigsEu checklist and the HumanSkin Extension</em></p>
 <h2 id="composition">Composition</h2>
 <p><a href="../MigsEu/">MigsEu</a> [Checklist] + <a href="../HumanSkin/">HumanSkin</a> [Extension]</p>
 <h2 id="terms">Terms</h2>
@@ -517,7 +517,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000028">MIXS:0000028</a></td>
 <td><a href="../0000028/">biotic_relationship</a></td>
-<td>0..1 <br/> <a href="../BIOTICRELATIONSHIPENUM/">BIOTICRELATIONSHIPENUM</a></td>
+<td>0..1 <br/> <a href="../BioticRelationshipEnum/">BioticRelationshipEnum</a></td>
 <td>Description of relationship(s) between the subject organism and other organis...</td>
 </tr>
 <tr>
@@ -529,7 +529,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000041">MIXS:0000041</a></td>
 <td><a href="../0000041/">lib_layout</a></td>
-<td>0..1 <br/> <a href="../LIBLAYOUTENUM/">LIBLAYOUTENUM</a></td>
+<td>0..1 <br/> <a href="../LibLayoutEnum/">LibLayoutEnum</a></td>
 <td>Specify whether to expect single, paired, or other configuration of reads</td>
 </tr>
 <tr>
@@ -565,7 +565,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001321">MIXS:0001321</a></td>
 <td><a href="../0001321/">neg_cont_type</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../NEGCONTTYPEENUM/">NEGCONTTYPEENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../NegContTypeEnum/">NegContTypeEnum</a></td>
 <td>The substance or equipment used as a negative control in an investigation</td>
 </tr>
 <tr>
@@ -583,7 +583,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000053">MIXS:0000053</a></td>
 <td><a href="../0000053/">tax_ident</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../TAXIDENTENUM/">TAXIDENTENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../TaxIdentEnum/">TaxIdentEnum</a></td>
 <td>The phylogenetic marker(s) used to assign an organism name to the SAG or MAG</td>
 </tr>
 <tr>
@@ -595,7 +595,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000032">MIXS:0000032</a></td>
 <td><a href="../0000032/">trophic_level</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../TROPHICLEVELENUM/">TROPHICLEVELENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../TrophicLevelEnum/">TrophicLevelEnum</a></td>
 <td>Trophic levels are the feeding position in a food chain</td>
 </tr>
 <tr>
@@ -751,7 +751,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000944">MIXS:0000944</a></td>
 <td><a href="../0000944/">dominant_hand</a></td>
-<td>0..1 <br/> <a href="../DOMINANTHANDENUM/">DOMINANTHANDENUM</a></td>
+<td>0..1 <br/> <a href="../DominantHandEnum/">DominantHandEnum</a></td>
 <td>Dominant hand of the subject</td>
 </tr>
 <tr>
@@ -889,7 +889,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000753">MIXS:0000753</a></td>
 <td><a href="../0000753/">oxy_stat_samp</a></td>
-<td>0..1 <br/> <a href="../OXYSTATSAMPENUM/">OXYSTATSAMPENUM</a></td>
+<td>0..1 <br/> <a href="../OxyStatSampEnum/">OxyStatSampEnum</a></td>
 <td>Oxygenation status of sample</td>
 </tr>
 <tr>
@@ -937,7 +937,7 @@
 <details>
 
 <pre><code class="language-yaml">name: MigsEuHumanSkin
-description: MIxS data that complies with the MigsEu checklist and the HumanSkin Extension
+description: MIxS Data that comply with the MigsEu checklist and the HumanSkin Extension
 title: MigsEu combined with HumanSkin
 in_subset:
 - combination_classes
@@ -955,7 +955,7 @@ class_uri: MIXS:0010002_0016006
 <details>
 
 <pre><code class="language-yaml">name: MigsEuHumanSkin
-description: MIxS data that complies with the MigsEu checklist and the HumanSkin Extension
+description: MIxS Data that comply with the MigsEu checklist and the HumanSkin Extension
 title: MigsEu combined with HumanSkin
 in_subset:
 - combination_classes
@@ -1611,7 +1611,7 @@ attributes:
     - MimarksC
     - Miuvig
     - Agriculture
-    range: BIOTIC_RELATIONSHIP_ENUM
+    range: BioticRelationshipEnum
   num_replicons:
     name: num_replicons
     description: Reports the number of replicons in a nuclear genome of eukaryotes,
@@ -1649,7 +1649,7 @@ attributes:
     - Misag
     - Miuvig
     - Agriculture
-    range: LIB_LAYOUT_ENUM
+    range: LibLayoutEnum
   assembly_qual:
     name: assembly_qual
     description: 'The assembly quality category is based on sets of criteria outlined
@@ -1833,7 +1833,7 @@ attributes:
     - Mims
     - Misag
     - Miuvig
-    range: NEG_CONT_TYPE_ENUM
+    range: NegContTypeEnum
     recommended: true
   adapters:
     name: adapters
@@ -1905,7 +1905,7 @@ attributes:
     - Mimag
     - Misag
     - Miuvig
-    range: TAX_IDENT_ENUM
+    range: TaxIdentEnum
     recommended: true
   annot:
     name: annot
@@ -1945,7 +1945,7 @@ attributes:
     - MigsEu
     - MimarksC
     - Agriculture
-    range: TROPHIC_LEVEL_ENUM
+    range: TrophicLevelEnum
     recommended: true
   pos_cont_type:
     name: pos_cont_type
@@ -2732,7 +2732,7 @@ attributes:
     owner: MigsEuHumanSkin
     domain_of:
     - HumanSkin
-    range: DOMINANT_HAND_ENUM
+    range: DominantHandEnum
   host_subject_id:
     name: host_subject_id
     description: A unique identifier by which each subject can be referred to, de-identified
@@ -3337,7 +3337,7 @@ attributes:
     - SymbiontAssociated
     - WastewaterSludge
     - Water
-    range: OXY_STAT_SAMP_ENUM
+    range: OxyStatSampEnum
   organism_count:
     name: organism_count
     description: 'Total cell count of any organism (or group of organisms) per gram,
@@ -3609,7 +3609,7 @@ class_uri: MIXS:0010002_0016006
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

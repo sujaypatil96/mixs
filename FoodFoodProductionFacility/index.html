@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -466,7 +466,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000226">MIXS:0000226</a></td>
 <td><a href="../0000226/">freq_clean</a></td>
-<td>0..1 <br/> <a href="../FREQCLEANENUM/">FREQCLEANENUM</a></td>
+<td>0..1 <br/> <a href="../FreqCleanEnum/">FreqCleanEnum</a></td>
 <td>The number of times the sample location is cleaned</td>
 </tr>
 <tr>
@@ -496,13 +496,13 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000758">MIXS:0000758</a></td>
 <td><a href="../0000758/">surf_material</a></td>
-<td>0..1 <br/> <a href="../SURFMATERIALENUM/">SURFMATERIALENUM</a></td>
+<td>0..1 <br/> <a href="../SurfMaterialEnum/">SurfMaterialEnum</a></td>
 <td>Surface materials at the point of sampling</td>
 </tr>
 <tr>
 <td><a href="https://w3id.org/mixs/0000764">MIXS:0000764</a></td>
 <td><a href="../0000764/">indoor_surf</a></td>
-<td>0..1 <br/> <a href="../INDOORSURFENUM/">INDOORSURFENUM</a></td>
+<td>0..1 <br/> <a href="../IndoorSurfEnum/">IndoorSurfEnum</a></td>
 <td>Type of indoor surface</td>
 </tr>
 <tr>
@@ -580,7 +580,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001252">MIXS:0001252</a></td>
 <td><a href="../0001252/">facility_type</a></td>
-<td>0..* <br/> <a href="../FACILITYTYPEENUM/">FACILITYTYPEENUM</a></td>
+<td>0..* <br/> <a href="../FacilityTypeEnum/">FacilityTypeEnum</a></td>
 <td>Establishment details about the type of facility where the sample was taken</td>
 </tr>
 <tr>
@@ -646,13 +646,13 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001256">MIXS:0001256</a></td>
 <td><a href="../0001256/">samp_surf_moisture</a></td>
-<td>0..* <br/> <a href="../SAMPSURFMOISTUREENUM/">SAMPSURFMOISTUREENUM</a></td>
+<td>0..* <br/> <a href="../SampSurfMoistureEnum/">SampSurfMoistureEnum</a></td>
 <td>Degree of water held on a sampled surface</td>
 </tr>
 <tr>
 <td><a href="https://w3id.org/mixs/0001257">MIXS:0001257</a></td>
 <td><a href="../0001257/">samp_loc_condition</a></td>
-<td>0..1 <br/> <a href="../SAMPLOCCONDITIONENUM/">SAMPLOCCONDITIONENUM</a></td>
+<td>0..1 <br/> <a href="../SampLocConditionEnum/">SampLocConditionEnum</a></td>
 <td>The condition of the sample location at the time of sampling</td>
 </tr>
 <tr>
@@ -706,7 +706,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001117">MIXS:0001117</a></td>
 <td><a href="../0001117/">cult_result</a></td>
-<td>0..1 <br/> <a href="../CULTRESULTENUM/">CULTRESULTENUM</a></td>
+<td>0..1 <br/> <a href="../CultResultEnum/">CultResultEnum</a></td>
 <td>Any result of a bacterial culture experiment reported as a binary assessment ...</td>
 </tr>
 <tr>
@@ -748,7 +748,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001230">MIXS:0001230</a></td>
 <td><a href="../0001230/">samp_transport_cont</a></td>
-<td>0..1 <br/> <a href="../SAMPTRANSPORTCONTENUM/">SAMPTRANSPORTCONTENUM</a></td>
+<td>0..1 <br/> <a href="../SampTransportContEnum/">SampTransportContEnum</a></td>
 <td>Conatiner in which the sample was stored during transport</td>
 </tr>
 <tr>
@@ -844,7 +844,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001214">MIXS:0001214</a></td>
 <td><a href="../0001214/">food_trace_list</a></td>
-<td>0..1 <br/> <a href="../FOODTRACELISTENUM/">FOODTRACELISTENUM</a></td>
+<td>0..1 <br/> <a href="../FoodTraceListEnum/">FoodTraceListEnum</a></td>
 <td>The FDA is proposing to establish additional traceability recordkeeping requi...</td>
 </tr>
 <tr>
@@ -2441,7 +2441,7 @@ attributes:
     domain_of:
     - BuiltEnvironment
     - FoodFoodProductionFacility
-    range: FREQ_CLEAN_ENUM
+    range: FreqCleanEnum
   samp_room_id:
     name: samp_room_id
     description: Sampling room number. This ID should be consistent with the designations
@@ -2568,7 +2568,7 @@ attributes:
     domain_of:
     - BuiltEnvironment
     - FoodFoodProductionFacility
-    range: SURF_MATERIAL_ENUM
+    range: SurfMaterialEnum
   indoor_surf:
     name: indoor_surf
     description: Type of indoor surface
@@ -2580,7 +2580,7 @@ attributes:
     domain_of:
     - BuiltEnvironment
     - FoodFoodProductionFacility
-    range: INDOOR_SURF_ENUM
+    range: IndoorSurfEnum
   avg_occup:
     name: avg_occup
     description: Daily average occupancy of room. Indicate the number of person(s)
@@ -2884,7 +2884,7 @@ attributes:
     owner: FoodFoodProductionFacility
     domain_of:
     - FoodFoodProductionFacility
-    range: FACILITY_TYPE_ENUM
+    range: FacilityTypeEnum
   food_trav_mode:
     name: food_trav_mode
     description: A descriptor for the method of movement of food commodity along the
@@ -3187,7 +3187,7 @@ attributes:
     owner: FoodFoodProductionFacility
     domain_of:
     - FoodFoodProductionFacility
-    range: SAMP_SURF_MOISTURE_ENUM
+    range: SampSurfMoistureEnum
   samp_loc_condition:
     name: samp_loc_condition
     description: The condition of the sample location at the time of sampling
@@ -3204,7 +3204,7 @@ attributes:
     owner: FoodFoodProductionFacility
     domain_of:
     - FoodFoodProductionFacility
-    range: SAMP_LOC_CONDITION_ENUM
+    range: SampLocConditionEnum
   biocide_used:
     name: biocide_used
     annotations:
@@ -3430,7 +3430,7 @@ attributes:
     - FoodFarmEnvironment
     - FoodFoodProductionFacility
     - FoodHumanFoods
-    range: CULT_RESULT_ENUM
+    range: CultResultEnum
   cult_result_org:
     name: cult_result_org
     description: Taxonomic information about the cultured organism(s)
@@ -3581,7 +3581,7 @@ attributes:
     - FoodAnimalAndAnimalFeed
     - FoodFoodProductionFacility
     - FoodHumanFoods
-    range: SAMP_TRANSPORT_CONT_ENUM
+    range: SampTransportContEnum
   study_design:
     name: study_design
     annotations:
@@ -3984,7 +3984,7 @@ attributes:
     - FoodAnimalAndAnimalFeed
     - FoodFoodProductionFacility
     - FoodHumanFoods
-    range: FOOD_TRACE_LIST_ENUM
+    range: FoodTraceListEnum
   part_plant_animal:
     name: part_plant_animal
     annotations:
@@ -4602,7 +4602,7 @@ class_uri: MIXS:0016021
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

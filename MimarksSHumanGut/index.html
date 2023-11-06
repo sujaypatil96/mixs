@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -368,7 +368,7 @@
 
 
 <h1 id="combination-mimarkss-combined-with-humangut-mimarksshumangut">Combination: MimarksS combined with HumanGut (MimarksSHumanGut)</h1>
-<p><em>MIxS data that complies with the MimarksS checklist and the HumanGut Extension</em></p>
+<p><em>MIxS Data that comply with the MimarksS checklist and the HumanGut Extension</em></p>
 <h2 id="composition">Composition</h2>
 <p><a href="../MimarksS/">MimarksS</a> [Checklist] + <a href="../HumanGut/">HumanGut</a> [Extension]</p>
 <h2 id="terms">Terms</h2>
@@ -475,7 +475,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000015">MIXS:0000015</a></td>
 <td><a href="../0000015/">rel_to_oxygen</a></td>
-<td>0..1 <br/> <a href="../RELTOOXYGENENUM/">RELTOOXYGENENUM</a></td>
+<td>0..1 <br/> <a href="../RelToOxygenEnum/">RelToOxygenEnum</a></td>
 <td>Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic ...</td>
 </tr>
 <tr>
@@ -487,13 +487,13 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000051">MIXS:0000051</a></td>
 <td><a href="../0000051/">seq_quality_check</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../SEQQUALITYCHECKENUM/">SEQQUALITYCHECKENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../SeqQualityCheckEnum/">SeqQualityCheckEnum</a></td>
 <td>Indicate if the sequence has been called by automatic systems (none) or under...</td>
 </tr>
 <tr>
 <td><a href="https://w3id.org/mixs/0000041">MIXS:0000041</a></td>
 <td><a href="../0000041/">lib_layout</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../LIBLAYOUTENUM/">LIBLAYOUTENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../LibLayoutEnum/">LibLayoutEnum</a></td>
 <td>Specify whether to expect single, paired, or other configuration of reads</td>
 </tr>
 <tr>
@@ -523,7 +523,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0001321">MIXS:0001321</a></td>
 <td><a href="../0001321/">neg_cont_type</a></td>
-<td>0..1 <em>recommended</em> <br/> <a href="../NEGCONTTYPEENUM/">NEGCONTTYPEENUM</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../NegContTypeEnum/">NegContTypeEnum</a></td>
 <td>The substance or equipment used as a negative control in an investigation</td>
 </tr>
 <tr>
@@ -799,7 +799,7 @@
 <tr>
 <td><a href="https://w3id.org/mixs/0000753">MIXS:0000753</a></td>
 <td><a href="../0000753/">oxy_stat_samp</a></td>
-<td>0..1 <br/> <a href="../OXYSTATSAMPENUM/">OXYSTATSAMPENUM</a></td>
+<td>0..1 <br/> <a href="../OxyStatSampEnum/">OxyStatSampEnum</a></td>
 <td>Oxygenation status of sample</td>
 </tr>
 <tr>
@@ -847,8 +847,7 @@
 <details>
 
 <pre><code class="language-yaml">name: MimarksSHumanGut
-description: MIxS data that complies with the MimarksS checklist and the HumanGut
-  Extension
+description: MIxS Data that comply with the MimarksS checklist and the HumanGut Extension
 title: MimarksS combined with HumanGut
 in_subset:
 - combination_classes
@@ -866,8 +865,7 @@ class_uri: MIXS:0010008_0016004
 <details>
 
 <pre><code class="language-yaml">name: MimarksSHumanGut
-description: MIxS data that complies with the MimarksS checklist and the HumanGut
-  Extension
+description: MIxS Data that comply with the MimarksS checklist and the HumanGut Extension
 title: MimarksS combined with HumanGut
 in_subset:
 - combination_classes
@@ -1364,7 +1362,7 @@ attributes:
     - MimarksS
     - Mims
     - Misag
-    range: REL_TO_OXYGEN_ENUM
+    range: RelToOxygenEnum
   samp_collect_device:
     name: samp_collect_device
     description: The device used to collect an environmental sample. This field accepts
@@ -1412,7 +1410,7 @@ attributes:
     - MimarksC
     - MimarksS
     - Agriculture
-    range: SEQ_QUALITY_CHECK_ENUM
+    range: SeqQualityCheckEnum
     recommended: true
   lib_layout:
     name: lib_layout
@@ -1435,7 +1433,7 @@ attributes:
     - Misag
     - Miuvig
     - Agriculture
-    range: LIB_LAYOUT_ENUM
+    range: LibLayoutEnum
     recommended: true
   env_broad_scale:
     name: env_broad_scale
@@ -1601,7 +1599,7 @@ attributes:
     - Mims
     - Misag
     - Miuvig
-    range: NEG_CONT_TYPE_ENUM
+    range: NegContTypeEnum
     recommended: true
   assembly_software:
     name: assembly_software
@@ -2913,7 +2911,7 @@ attributes:
     - SymbiontAssociated
     - WastewaterSludge
     - Water
-    range: OXY_STAT_SAMP_ENUM
+    range: OxyStatSampEnum
   organism_count:
     name: organism_count
     description: 'Total cell count of any organism (or group of organisms) per gram,
@@ -3185,7 +3183,7 @@ class_uri: MIXS:0010008_0016004
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
