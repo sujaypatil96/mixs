@@ -1361,7 +1361,14 @@ attributes:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    examples:
+    - value: 5 liter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - size
     slot_uri: MIXS:0000001
     alias: samp_size
     owner: MimarksCHydrocarbonResourcesCores
@@ -1493,6 +1500,10 @@ attributes:
       that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids
       (borrelia has 15+ plasmids)
     title: extrachromosomal elements
+    examples:
+    - value: '5'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000023
     alias: extrachrom_elements
@@ -2271,12 +2282,23 @@ attributes:
       partial_match: true
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -2990,7 +3012,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MimarksCHydrocarbonResourcesCores
@@ -3092,7 +3120,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksCHydrocarbonResourcesCores
@@ -3126,9 +3161,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc

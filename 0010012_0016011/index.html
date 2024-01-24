@@ -1594,9 +1594,19 @@ attributes:
     recommended: true
   trnas:
     name: trnas
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: value from 0-21
     description: The total number of tRNAs identified from the SAG or MAG
     title: number of standard tRNAs extracted
+    examples:
+    - value: '18'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - number
     string_serialization: '{integer}'
     slot_uri: MIXS:0000067
     alias: trnas
@@ -1712,11 +1722,21 @@ attributes:
       partial_match: true
   estimated_size:
     name: estimated_size
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: number of base pairs
     description: The estimated size of the genome prior to sequencing. Of particular
       importance in the sequencing of (eukaryotic) genome which could remain in draft
       form for a long or unspecified period
     title: estimated size
+    examples:
+    - value: 300000 bp
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - size
     string_serialization: '{integer} bp'
     slot_uri: MIXS:0000024
     alias: estimated_size
@@ -1768,11 +1788,24 @@ attributes:
     recommended: true
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MiuvigSediment
@@ -1819,8 +1852,16 @@ attributes:
       partial_match: true
   pathogenicity:
     name: pathogenicity
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names of organisms that the entity is pathogenic to
     description: To what is the entity pathogenic
     title: known pathogenicity
+    examples:
+    - value: human, animal, plant, fungi, bacteria
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     string_serialization: '{text}'
     slot_uri: MIXS:0000027
@@ -1915,7 +1956,14 @@ attributes:
       species Y. The target organism is the subject of the relationship, and the other
       organism(s) is the object
     title: observed biotic relationship
+    examples:
+    - value: free living
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - observed
+    - relationship
     slot_uri: MIXS:0000028
     alias: biotic_relationship
     owner: MiuvigSediment
@@ -1931,7 +1979,13 @@ attributes:
     name: trna_ext_software
     description: Tools used for tRNA identification
     title: tRNA extraction software
+    examples:
+    - value: infernal;v2;default parameters
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     slot_uri: MIXS:0000068
     alias: trna_ext_software
     owner: MiuvigSediment
@@ -2012,6 +2066,10 @@ attributes:
     description: Primary publication if isolated before genome publication; otherwise,
       primary genome report
     title: reference for biomaterial
+    examples:
+    - value: doi:10.1016/j.syapm.2018.01.009
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000025
     alias: ref_biomaterial
@@ -2107,10 +2165,22 @@ attributes:
     recommended: true
   host_spec_range:
     name: host_spec_range
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: NCBI taxid
     description: The range and diversity of host species that an organism is capable
       of infecting, defined by NCBI taxonomy identifier
     title: host specificity or range
+    examples:
+    - value: '9606'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - range
     string_serialization: '{integer}'
     slot_uri: MIXS:0000030
     multivalued: true
@@ -2224,7 +2294,16 @@ attributes:
     description: The phylogenetic marker(s) used to assign an organism name to the
       SAG or MAG
     title: taxonomic identity marker
+    examples:
+    - value: other
+      description: was other &lt;colon&gt; rpoB gene
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - identifier
+    - marker
+    - taxon
     slot_uri: MIXS:0000053
     alias: tax_ident
     owner: MiuvigSediment
@@ -2240,10 +2319,18 @@ attributes:
     range: TaxIdentEnum
   annot:
     name: annot
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name of tool or pipeline used, or annotation source description
     description: Tool used for annotation, or for cases where annotation was provided
       by a community jamboree or model organism database rather than by a specific
       submitter
     title: annotation
+    examples:
+    - value: prokka
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
     string_serialization: '{text}'
     slot_uri: MIXS:0000059
@@ -2317,9 +2404,19 @@ attributes:
       partial_match: true
   compl_software:
     name: compl_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names and versions of software(s) used
     description: Tools used for completion estimate, i.e. checkm, anvi'o, busco
     title: completeness software
+    examples:
+    - value: checkm
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     string_serialization: '{software};{version}'
     slot_uri: MIXS:0000070
     alias: compl_software
@@ -2552,9 +2649,20 @@ attributes:
     recommended: true
   specific_host:
     name: specific_host
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: host scientific name, taxonomy ID
     description: Report the host's taxonomic name and/or NCBI taxonomy ID
     title: host scientific name
+    examples:
+    - value: Homo sapiens and/or 9606
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     string_serialization: '{text}|{NCBI taxid}'
     slot_uri: MIXS:0000029
     alias: specific_host
@@ -3054,7 +3162,13 @@ attributes:
     description: Tool(s) used to determine the genome coverage if coverage is used
       as a binning parameter in the extraction of genomes from metagenomic datasets
     title: MAG coverage software
+    examples:
+    - value: bbmap
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     slot_uri: MIXS:0000080
     alias: mag_cov_software
     owner: MiuvigSediment
@@ -3281,6 +3395,8 @@ attributes:
     name: alkyl_diethers
     description: Concentration of alkyl diethers
     title: alkyl diethers
+    examples:
+    - value: 0.005 mole per liter
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000490
     alias: alkyl_diethers
@@ -3323,8 +3439,14 @@ attributes:
       partial_match: true
   ammonium:
     name: ammonium
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of ammonium in the sample
     title: ammonium
+    examples:
+    - value: 1.5 milligram per liter
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000427
     alias: ammonium
@@ -3347,7 +3469,12 @@ attributes:
     name: bacteria_carb_prod
     description: Measurement of bacterial carbon production
     title: bacterial carbon production
+    examples:
+    - value: 2.53 microgram per liter per hour
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - production
     slot_uri: MIXS:0000173
     alias: bacteria_carb_prod
     owner: MiuvigSediment
@@ -3495,12 +3622,20 @@ attributes:
     range: float
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -3764,7 +3899,13 @@ attributes:
     description: Dissolved organic nitrogen concentration measured as; total dissolved
       nitrogen - NH4 - NO3 - NO2
     title: dissolved organic nitrogen
+    examples:
+    - value: 0.05 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dissolved
+    - nitrogen
+    - organic
     slot_uri: MIXS:0000162
     alias: diss_org_nitro
     owner: MiuvigSediment
@@ -3985,8 +4126,14 @@ attributes:
     range: string
   n_alkanes:
     name: n_alkanes
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: n-alkane name;measurement value
     description: Concentration of n-alkanes; can include multiple n-alkanes
     title: n-alkanes
+    examples:
+    - value: n-hexadecane;100 milligram per liter
     from_schema: https://w3id.org/mixs
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000503
@@ -4000,9 +4147,17 @@ attributes:
     range: string
   nitrate:
     name: nitrate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrate in the sample
     title: nitrate
+    examples:
+    - value: 65 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrate
     slot_uri: MIXS:0000425
     alias: nitrate
     owner: MiuvigSediment
@@ -4023,9 +4178,17 @@ attributes:
       partial_match: true
   nitrite:
     name: nitrite
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrite in the sample
     title: nitrite
+    examples:
+    - value: 0.5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrite
     slot_uri: MIXS:0000426
     alias: nitrite
     owner: MiuvigSediment
@@ -4075,7 +4238,12 @@ attributes:
     name: org_carb
     description: Concentration of organic carbon
     title: organic carbon
+    examples:
+    - value: 1.5 microgram per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
     slot_uri: MIXS:0000508
     alias: org_carb
     owner: MiuvigSediment
@@ -4124,7 +4292,12 @@ attributes:
     name: org_nitro
     description: Concentration of organic nitrogen
     title: organic nitrogen
+    examples:
+    - value: 4 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrogen
+    - organic
     slot_uri: MIXS:0000205
     alias: org_nitro
     owner: MiuvigSediment
@@ -4184,7 +4357,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MiuvigSediment
@@ -4212,7 +4391,11 @@ attributes:
     description: Ph measurement of the sample, or liquid portion of sample, or aqueous
       phase of the fluid
     title: pH
+    examples:
+    - value: '7.2'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - ph
     slot_uri: MIXS:0001001
     alias: ph
     owner: MiuvigSediment
@@ -4256,7 +4439,14 @@ attributes:
     name: part_org_carb
     description: Concentration of particulate organic carbon
     title: particulate organic carbon
+    examples:
+    - value: 1.92 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
+    - particle
+    - particulate
     slot_uri: MIXS:0000515
     alias: part_org_carb
     owner: MiuvigSediment
@@ -4273,12 +4463,20 @@ attributes:
       partial_match: true
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -4387,8 +4585,14 @@ attributes:
       partial_match: true
   phosplipid_fatt_acid:
     name: phosplipid_fatt_acid
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: phospholipid fatty acid name;measurement value
     description: Concentration of phospholipid fatty acids; can include multiple values
     title: phospholipid fatty acid
+    examples:
+    - value: 2.98 milligram per liter
     from_schema: https://w3id.org/mixs
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000181
@@ -4560,7 +4764,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MiuvigSediment
@@ -4594,9 +4805,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -4743,9 +4964,17 @@ attributes:
       partial_match: true
   sulfate:
     name: sulfate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of sulfate in the sample
     title: sulfate
+    examples:
+    - value: 5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sulfate
     slot_uri: MIXS:0000423
     alias: sulfate
     owner: MiuvigSediment
@@ -4765,9 +4994,17 @@ attributes:
       partial_match: true
   sulfide:
     name: sulfide
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of sulfide in the sample
     title: sulfide
+    examples:
+    - value: 2 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sulfide
     slot_uri: MIXS:0000424
     alias: sulfide
     owner: MiuvigSediment
@@ -4804,6 +5041,9 @@ attributes:
     description: Total carbon content
     title: total carbon
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - total
     slot_uri: MIXS:0000525
     alias: tot_carb
     owner: MiuvigSediment
@@ -4850,7 +5090,13 @@ attributes:
     name: tot_nitro_content
     description: Total nitrogen content of the sample
     title: total nitrogen content
+    examples:
+    - value: 35 milligrams Nitrogen per kilogram of soil
     from_schema: https://w3id.org/mixs
+    keywords:
+    - content
+    - nitrogen
+    - total
     slot_uri: MIXS:0000530
     alias: tot_nitro_content
     owner: MiuvigSediment
@@ -4869,9 +5115,19 @@ attributes:
       partial_match: true
   tot_org_carb:
     name: tot_org_carb
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: gram Carbon per kilogram sample material
     description: Total organic carbon content
     title: total organic carbon
+    examples:
+    - value: '0.02'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
+    - total
     slot_uri: MIXS:0000533
     alias: tot_org_carb
     owner: MiuvigSediment
@@ -4893,6 +5149,8 @@ attributes:
     description: Measure of the amount of cloudiness or haziness in water caused by
       individual particles
     title: turbidity
+    examples:
+    - value: 0.3 nephelometric turbidity units
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000191
     alias: turbidity

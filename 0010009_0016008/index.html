@@ -1246,7 +1246,14 @@ attributes:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    examples:
+    - value: 5 liter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - size
     slot_uri: MIXS:0000001
     alias: samp_size
     owner: MimarksCMicrobialMatBiofilm
@@ -1378,6 +1385,10 @@ attributes:
       that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids
       (borrelia has 15+ plasmids)
     title: extrachromosomal elements
+    examples:
+    - value: '5'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000023
     alias: extrachrom_elements
@@ -1390,11 +1401,24 @@ attributes:
     range: integer
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimarksCMicrobialMatBiofilm
@@ -2155,12 +2179,23 @@ attributes:
       partial_match: true
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -2295,6 +2330,8 @@ attributes:
     name: alkyl_diethers
     description: Concentration of alkyl diethers
     title: alkyl diethers
+    examples:
+    - value: 0.005 mole per liter
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000490
     alias: alkyl_diethers
@@ -2337,8 +2374,14 @@ attributes:
       partial_match: true
   ammonium:
     name: ammonium
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of ammonium in the sample
     title: ammonium
+    examples:
+    - value: 1.5 milligram per liter
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000427
     alias: ammonium
@@ -2361,7 +2404,12 @@ attributes:
     name: bacteria_carb_prod
     description: Measurement of bacterial carbon production
     title: bacterial carbon production
+    examples:
+    - value: 2.53 microgram per liter per hour
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - production
     slot_uri: MIXS:0000173
     alias: bacteria_carb_prod
     owner: MimarksCMicrobialMatBiofilm
@@ -2509,12 +2557,20 @@ attributes:
     range: float
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -2748,7 +2804,13 @@ attributes:
     description: Dissolved organic nitrogen concentration measured as; total dissolved
       nitrogen - NH4 - NO3 - NO2
     title: dissolved organic nitrogen
+    examples:
+    - value: 0.05 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dissolved
+    - nitrogen
+    - organic
     slot_uri: MIXS:0000162
     alias: diss_org_nitro
     owner: MimarksCMicrobialMatBiofilm
@@ -2969,8 +3031,14 @@ attributes:
     range: string
   n_alkanes:
     name: n_alkanes
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: n-alkane name;measurement value
     description: Concentration of n-alkanes; can include multiple n-alkanes
     title: n-alkanes
+    examples:
+    - value: n-hexadecane;100 milligram per liter
     from_schema: https://w3id.org/mixs
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000503
@@ -2984,9 +3052,17 @@ attributes:
     range: string
   nitrate:
     name: nitrate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrate in the sample
     title: nitrate
+    examples:
+    - value: 65 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrate
     slot_uri: MIXS:0000425
     alias: nitrate
     owner: MimarksCMicrobialMatBiofilm
@@ -3007,9 +3083,17 @@ attributes:
       partial_match: true
   nitrite:
     name: nitrite
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrite in the sample
     title: nitrite
+    examples:
+    - value: 0.5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrite
     slot_uri: MIXS:0000426
     alias: nitrite
     owner: MimarksCMicrobialMatBiofilm
@@ -3059,7 +3143,12 @@ attributes:
     name: org_carb
     description: Concentration of organic carbon
     title: organic carbon
+    examples:
+    - value: 1.5 microgram per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
     slot_uri: MIXS:0000508
     alias: org_carb
     owner: MimarksCMicrobialMatBiofilm
@@ -3108,7 +3197,12 @@ attributes:
     name: org_nitro
     description: Concentration of organic nitrogen
     title: organic nitrogen
+    examples:
+    - value: 4 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrogen
+    - organic
     slot_uri: MIXS:0000205
     alias: org_nitro
     owner: MimarksCMicrobialMatBiofilm
@@ -3168,7 +3262,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MimarksCMicrobialMatBiofilm
@@ -3196,7 +3296,11 @@ attributes:
     description: Ph measurement of the sample, or liquid portion of sample, or aqueous
       phase of the fluid
     title: pH
+    examples:
+    - value: '7.2'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - ph
     slot_uri: MIXS:0001001
     alias: ph
     owner: MimarksCMicrobialMatBiofilm
@@ -3215,7 +3319,14 @@ attributes:
     name: part_org_carb
     description: Concentration of particulate organic carbon
     title: particulate organic carbon
+    examples:
+    - value: 1.92 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
+    - particle
+    - particulate
     slot_uri: MIXS:0000515
     alias: part_org_carb
     owner: MimarksCMicrobialMatBiofilm
@@ -3232,12 +3343,20 @@ attributes:
       partial_match: true
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -3346,8 +3465,14 @@ attributes:
       partial_match: true
   phosplipid_fatt_acid:
     name: phosplipid_fatt_acid
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: phospholipid fatty acid name;measurement value
     description: Concentration of phospholipid fatty acids; can include multiple values
     title: phospholipid fatty acid
+    examples:
+    - value: 2.98 milligram per liter
     from_schema: https://w3id.org/mixs
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000181
@@ -3495,7 +3620,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksCMicrobialMatBiofilm
@@ -3529,9 +3661,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -3662,9 +3804,17 @@ attributes:
       partial_match: true
   sulfate:
     name: sulfate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of sulfate in the sample
     title: sulfate
+    examples:
+    - value: 5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sulfate
     slot_uri: MIXS:0000423
     alias: sulfate
     owner: MimarksCMicrobialMatBiofilm
@@ -3684,9 +3834,17 @@ attributes:
       partial_match: true
   sulfide:
     name: sulfide
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of sulfide in the sample
     title: sulfide
+    examples:
+    - value: 2 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sulfide
     slot_uri: MIXS:0000424
     alias: sulfide
     owner: MimarksCMicrobialMatBiofilm
@@ -3709,6 +3867,9 @@ attributes:
     description: Total carbon content
     title: total carbon
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - total
     slot_uri: MIXS:0000525
     alias: tot_carb
     owner: MimarksCMicrobialMatBiofilm
@@ -3727,7 +3888,13 @@ attributes:
     name: tot_nitro_content
     description: Total nitrogen content of the sample
     title: total nitrogen content
+    examples:
+    - value: 35 milligrams Nitrogen per kilogram of soil
     from_schema: https://w3id.org/mixs
+    keywords:
+    - content
+    - nitrogen
+    - total
     slot_uri: MIXS:0000530
     alias: tot_nitro_content
     owner: MimarksCMicrobialMatBiofilm
@@ -3746,9 +3913,19 @@ attributes:
       partial_match: true
   tot_org_carb:
     name: tot_org_carb
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: gram Carbon per kilogram sample material
     description: Total organic carbon content
     title: total organic carbon
+    examples:
+    - value: '0.02'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
+    - total
     slot_uri: MIXS:0000533
     alias: tot_org_carb
     owner: MimarksCMicrobialMatBiofilm
@@ -3770,6 +3947,8 @@ attributes:
     description: Measure of the amount of cloudiness or haziness in water caused by
       individual particles
     title: turbidity
+    examples:
+    - value: 0.3 nephelometric turbidity units
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000191
     alias: turbidity

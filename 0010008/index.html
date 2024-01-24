@@ -988,15 +988,6 @@ slot_usage:
     - MimarksS
     - Agriculture
     recommended: true
-  rel_to_oxygen:
-    name: rel_to_oxygen
-    domain_of:
-    - MigsBa
-    - Mimag
-    - MimarksC
-    - MimarksS
-    - Mims
-    - Misag
   samp_collect_device:
     name: samp_collect_device
     examples:
@@ -1076,42 +1067,6 @@ slot_usage:
     - FoodFoodProductionFacility
     - FoodHumanFoods
     recommended: true
-  samp_vol_we_dna_ext:
-    name: samp_vol_we_dna_ext
-    domain_of:
-    - MigsBa
-    - MigsEu
-    - MigsOrg
-    - MigsPl
-    - MigsVi
-    - Mimag
-    - MimarksC
-    - MimarksS
-    - Mims
-    - Misag
-    - Miuvig
-    - Agriculture
-    - Air
-    - FoodAnimalAndAnimalFeed
-    - FoodFarmEnvironment
-    - FoodFoodProductionFacility
-    - FoodHumanFoods
-    - HostAssociated
-    - HumanAssociated
-    - HumanGut
-    - HumanOral
-    - HumanSkin
-    - HumanVaginal
-    - HydrocarbonResourcesCores
-    - HydrocarbonResourcesFluidsSwabs
-    - MicrobialMatBiofilm
-    - MiscellaneousNaturalOrArtificialEnvironment
-    - PlantAssociated
-    - Sediment
-    - Soil
-    - SymbiontAssociated
-    - WastewaterSludge
-    - Water
   seq_quality_check:
     name: seq_quality_check
     domain_of:
@@ -1119,14 +1074,6 @@ slot_usage:
     - MimarksS
     - Agriculture
     recommended: true
-  size_frac:
-    name: size_frac
-    domain_of:
-    - Mimag
-    - MimarksS
-    - Mims
-    - Misag
-    - Miuvig
   sop:
     name: sop
     domain_of:
@@ -1495,15 +1442,6 @@ slot_usage:
     - MimarksS
     - Agriculture
     recommended: true
-  rel_to_oxygen:
-    name: rel_to_oxygen
-    domain_of:
-    - MigsBa
-    - Mimag
-    - MimarksC
-    - MimarksS
-    - Mims
-    - Misag
   samp_collect_device:
     name: samp_collect_device
     examples:
@@ -1583,42 +1521,6 @@ slot_usage:
     - FoodFoodProductionFacility
     - FoodHumanFoods
     recommended: true
-  samp_vol_we_dna_ext:
-    name: samp_vol_we_dna_ext
-    domain_of:
-    - MigsBa
-    - MigsEu
-    - MigsOrg
-    - MigsPl
-    - MigsVi
-    - Mimag
-    - MimarksC
-    - MimarksS
-    - Mims
-    - Misag
-    - Miuvig
-    - Agriculture
-    - Air
-    - FoodAnimalAndAnimalFeed
-    - FoodFarmEnvironment
-    - FoodFoodProductionFacility
-    - FoodHumanFoods
-    - HostAssociated
-    - HumanAssociated
-    - HumanGut
-    - HumanOral
-    - HumanSkin
-    - HumanVaginal
-    - HydrocarbonResourcesCores
-    - HydrocarbonResourcesFluidsSwabs
-    - MicrobialMatBiofilm
-    - MiscellaneousNaturalOrArtificialEnvironment
-    - PlantAssociated
-    - Sediment
-    - Soil
-    - SymbiontAssociated
-    - WastewaterSludge
-    - Water
   seq_quality_check:
     name: seq_quality_check
     domain_of:
@@ -1626,14 +1528,6 @@ slot_usage:
     - MimarksS
     - Agriculture
     recommended: true
-  size_frac:
-    name: size_frac
-    domain_of:
-    - Mimag
-    - MimarksS
-    - Mims
-    - Misag
-    - Miuvig
   sop:
     name: sop
     domain_of:
@@ -1798,9 +1692,20 @@ attributes:
     recommended: true
   size_frac:
     name: size_frac
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    examples:
+    - value: 0-0.22 micrometer
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - fraction
+    - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000017
     alias: size_frac
@@ -2119,11 +2024,24 @@ attributes:
     recommended: true
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimarksS
@@ -2195,7 +2113,14 @@ attributes:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    examples:
+    - value: aerobe
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - relationship
     slot_uri: MIXS:0000015
     alias: rel_to_oxygen
     owner: MimarksS

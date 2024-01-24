@@ -1426,7 +1426,14 @@ attributes:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    examples:
+    - value: 5 liter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - size
     slot_uri: MIXS:0000001
     alias: samp_size
     owner: MimarksCFoodFoodProductionFacility
@@ -1558,6 +1565,10 @@ attributes:
       that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids
       (borrelia has 15+ plasmids)
     title: extrachromosomal elements
+    examples:
+    - value: '5'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000023
     alias: extrachrom_elements
@@ -1570,11 +1581,24 @@ attributes:
     range: integer
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimarksCFoodFoodProductionFacility
@@ -2335,12 +2359,23 @@ attributes:
       partial_match: true
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -2530,7 +2565,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksCFoodFoodProductionFacility
@@ -2656,9 +2698,19 @@ attributes:
     range: string
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -2689,7 +2741,12 @@ attributes:
     name: surf_material
     description: Surface materials at the point of sampling
     title: surface material
+    examples:
+    - value: wood
     from_schema: https://w3id.org/mixs
+    keywords:
+    - material
+    - surface
     slot_uri: MIXS:0000758
     alias: surf_material
     owner: MimarksCFoodFoodProductionFacility
@@ -2701,7 +2758,12 @@ attributes:
     name: indoor_surf
     description: Type of indoor surface
     title: indoor surface
+    examples:
+    - value: wall
     from_schema: https://w3id.org/mixs
+    keywords:
+    - indoor
+    - surface
     slot_uri: MIXS:0000764
     alias: indoor_surf
     owner: MimarksCFoodFoodProductionFacility
@@ -3357,7 +3419,12 @@ attributes:
       presence or enumeration of the target microbial analyte(s). Please provide a
       PubMed or DOI reference for published protocols
     title: enrichment protocol
+    examples:
+    - value: 'BAM Chapter 4: Enumeration of Escherichia coli and the Coliform Bacteria'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - enrichment
+    - protocol
     slot_uri: MIXS:0001177
     alias: enrichment_protocol
     owner: MimarksCFoodFoodProductionFacility
@@ -3558,7 +3625,12 @@ attributes:
       RNA extracted from samples or dishes of cell cultures into one big aliquot of
       cells. Please provide a short description of the samples that were pooled
     title: sample pooling
+    examples:
+    - value: 5uL of extracted genomic DNA from 5 leaves were pooled
     from_schema: https://w3id.org/mixs
+    keywords:
+    - pooling
+    - sample
     slot_uri: MIXS:0001153
     multivalued: true
     alias: samp_pooling
@@ -3572,9 +3644,17 @@ attributes:
     range: string
   samp_purpose:
     name: samp_purpose
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration or {text}
     description: The reason that the sample was collected
     title: purpose of sampling
+    examples:
+    - value: field trial
     from_schema: https://w3id.org/mixs
+    keywords:
+    - purpose
     string_serialization: '[active surveillance in response to an outbreak|active
       surveillance not initiated by an outbreak|clinical trial|cluster investigation|environmental
       assessment|farm sample|field trial|for cause|industry internal investigation|market
@@ -3973,7 +4053,14 @@ attributes:
       its cultivation or production. This field accepts terms listed under geographic
       location (http://purl.obolibrary.org/obo/GAZ_00000448)
     title: food product origin geographic location
+    examples:
+    - value: 'USA: Delmarva, Peninsula'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - geographic
+    - location
+    - product
     slot_uri: MIXS:0001207
     alias: food_origin
     owner: MimarksCFoodFoodProductionFacility
@@ -4474,7 +4561,12 @@ attributes:
       food production. This field accepts terms listed under food production (http://purl.obolibrary.org/obo/FOODON_03530206).
       Multiple terms may apply and can be separated by pipes
     title: food production system characteristics
+    examples:
+    - value: organic plant cultivation [FOODON:03530253]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - production
     slot_uri: MIXS:0001211
     multivalued: true
     alias: food_prod
@@ -4544,11 +4636,19 @@ attributes:
     range: string
   intended_consumer:
     name: intended_consumer
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: FOODON_03510136 or NCBI taxid
     description: Food consumer type, human or animal, for which the food product is
       produced and marketed. This field accepts terms listed under food consumer group
       (http://purl.obolibrary.org/obo/FOODON_03510136) or NCBI taxid
     title: intended consumer
+    examples:
+    - value: 9606 o rsenior as food consumer [FOODON:03510254]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - consumer
     string_serialization: '{integer}|{termLabel} [{termID}]'
     slot_uri: MIXS:0001144
     multivalued: true

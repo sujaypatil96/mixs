@@ -1164,10 +1164,20 @@ attributes:
     required: true
   lib_screen:
     name: lib_screen
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: screening strategy name
     description: Specific enrichment or screening methods applied before and/or after
       creating libraries
     title: library screening strategy
+    examples:
+    - value: enriched, screened, normalized
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     string_serialization: '{text}'
     slot_uri: MIXS:0000043
     alias: lib_screen
@@ -1187,10 +1197,21 @@ attributes:
     range: string
   ref_db:
     name: ref_db
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names, versions, and references of databases
     description: List of database(s) used for ORF annotation, along with version number
       and reference to website or publication
     title: reference database(s)
+    examples:
+    - value: pVOGs;5;http://dmk-brain.ecn.uiowa.edu/pVOGs/ Grazziotin et al. 2017
+        doi:10.1093/nar/gkw975
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - database
     string_serialization: '{database};{version};{reference}'
     slot_uri: MIXS:0000062
     alias: ref_db
@@ -1240,7 +1261,14 @@ attributes:
     name: lib_size
     description: Total number of clones in the library prepared for the project
     title: library size
+    examples:
+    - value: '50'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
+    - size
     slot_uri: MIXS:0000039
     alias: lib_size
     owner: MigsPlSymbiontAssociated
@@ -1331,13 +1359,23 @@ attributes:
       partial_match: true
   compl_score:
     name: compl_score
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: quality;percent completeness
     description: 'Completeness score is typically based on either the fraction of
       markers found as compared to a database or the percent of a genome found as
       compared to a closely related reference genome. High Quality Draft: &gt;90%, Medium
       Quality Draft: &gt;50%, and Low Quality Draft: &lt; 50% should have the indicated
       completeness scores'
     title: completeness score
+    examples:
+    - value: med;60%
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - score
     string_serialization: '[high|med|low];{percentage}'
     slot_uri: MIXS:0000069
     alias: compl_score
@@ -1391,7 +1429,14 @@ attributes:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    examples:
+    - value: 5 liter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - size
     slot_uri: MIXS:0000001
     alias: samp_size
     owner: MigsPlSymbiontAssociated
@@ -1519,11 +1564,21 @@ attributes:
     recommended: true
   estimated_size:
     name: estimated_size
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: number of base pairs
     description: The estimated size of the genome prior to sequencing. Of particular
       importance in the sequencing of (eukaryotic) genome which could remain in draft
       form for a long or unspecified period
     title: estimated size
+    examples:
+    - value: 300000 bp
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - size
     string_serialization: '{integer} bp'
     slot_uri: MIXS:0000024
     alias: estimated_size
@@ -1538,11 +1593,24 @@ attributes:
     range: string
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MigsPlSymbiontAssociated
@@ -1591,7 +1659,13 @@ attributes:
     name: lib_reads_seqd
     description: Total number of clones sequenced from the library
     title: library reads sequenced
+    examples:
+    - value: '20'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     slot_uri: MIXS:0000040
     alias: lib_reads_seqd
     owner: MigsPlSymbiontAssociated
@@ -1677,7 +1751,13 @@ attributes:
     description: Total number of contigs in the cleaned/submitted assembly that makes
       up a given genome, SAG, MAG, or UViG
     title: number of contigs
+    examples:
+    - value: '40'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - number
     slot_uri: MIXS:0000060
     alias: number_contig
     owner: MigsPlSymbiontAssociated
@@ -1697,7 +1777,13 @@ attributes:
     description: Specify whether to expect single, paired, or other configuration
       of reads
     title: library layout
+    examples:
+    - value: paired
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     slot_uri: MIXS:0000041
     alias: lib_layout
     owner: MigsPlSymbiontAssociated
@@ -1716,6 +1802,10 @@ attributes:
     range: LibLayoutEnum
   assembly_qual:
     name: assembly_qual
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: 'The assembly quality category is based on sets of criteria outlined
       for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
       contiguous sequence per replicon without gaps or ambiguities with a consensus
@@ -1734,7 +1824,13 @@ attributes:
       fragments, totalling &lt; 90% of the expected genome or replicon sequence, or for
       which no genome size could be estimated'
     title: assembly quality
+    examples:
+    - value: High-quality draft genome
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - quality
     string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
       draft genome|Low-quality draft genome|Genome fragment(s)]'
     slot_uri: MIXS:0000056
@@ -1757,6 +1853,10 @@ attributes:
     description: Primary publication if isolated before genome publication; otherwise,
       primary genome report
     title: reference for biomaterial
+    examples:
+    - value: doi:10.1016/j.syapm.2018.01.009
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000025
     alias: ref_biomaterial
@@ -1829,9 +1929,19 @@ attributes:
     required: true
   lib_vector:
     name: lib_vector
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: vector
     description: Cloning vector type(s) used in construction of libraries
     title: library vector
+    examples:
+    - value: Bacteriophage P1
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     string_serialization: '{text}'
     slot_uri: MIXS:0000042
     alias: lib_vector
@@ -1851,10 +1961,22 @@ attributes:
     range: string
   host_spec_range:
     name: host_spec_range
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: NCBI taxid
     description: The range and diversity of host species that an organism is capable
       of infecting, defined by NCBI taxonomy identifier
     title: host specificity or range
+    examples:
+    - value: '9606'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - range
     string_serialization: '{integer}'
     slot_uri: MIXS:0000030
     multivalued: true
@@ -2050,7 +2172,14 @@ attributes:
     description: Method used to predict UViGs features such as ORFs, integration site,
       etc
     title: feature prediction
+    examples:
+    - value: Prodigal;2.6.3;default parameters
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - feature
+    - predict
     slot_uri: MIXS:0000061
     alias: feat_pred
     owner: MigsPlSymbiontAssociated
@@ -2113,9 +2242,19 @@ attributes:
     required: true
   compl_software:
     name: compl_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names and versions of software(s) used
     description: Tools used for completion estimate, i.e. checkm, anvi'o, busco
     title: completeness software
+    examples:
+    - value: checkm
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     string_serialization: '{software};{version}'
     slot_uri: MIXS:0000070
     alias: compl_software
@@ -2136,7 +2275,15 @@ attributes:
       or after retrieving the sample from environment, or a link to the relevant protocol(s)
       performed
     title: sample material processing
+    examples:
+    - value: filtering of seawater, storing samples in ethanol
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - material
+    - process
+    - sample
     slot_uri: MIXS:0000016
     alias: samp_mat_process
     owner: MigsPlSymbiontAssociated
@@ -2159,7 +2306,13 @@ attributes:
     description: Tool used to compare ORFs with database, along with version and cutoffs
       used
     title: similarity search method
+    examples:
+    - value: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - method
     slot_uri: MIXS:0000063
     alias: sim_search_meth
     owner: MigsPlSymbiontAssociated
@@ -2596,7 +2749,15 @@ attributes:
     description: Method used for taxonomic classification, along with reference database
       used, classification rank, and thresholds used to classify new genomes
     title: taxonomic classification
+    examples:
+    - value: vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification,
+        default parameters)
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - classification
+    - taxon
     slot_uri: MIXS:0000064
     alias: tax_class
     owner: MigsPlSymbiontAssociated
@@ -2613,12 +2774,23 @@ attributes:
     range: string
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -2838,10 +3010,18 @@ attributes:
     required: true
   host_age:
     name: host_age
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: year, day, hour
     description: Age of host at the time of sampling; relevant scale depends on species
       and study, e.g. Could be seconds for amoebae or centuries for trees
     title: host age
     from_schema: https://w3id.org/mixs
+    keywords:
+    - age
+    - host
+    - host.
     slot_uri: MIXS:0000255
     alias: host_age
     owner: MigsPlSymbiontAssociated
@@ -2981,9 +3161,18 @@ attributes:
     range: string
   host_tot_mass:
     name: host_tot_mass
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: kilogram, gram
     description: Total mass of the host at collection, the unit depends on host
     title: host total mass
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - mass
+    - total
     slot_uri: MIXS:0000263
     alias: host_tot_mass
     owner: MigsPlSymbiontAssociated
@@ -3007,9 +3196,17 @@ attributes:
       partial_match: true
   host_height:
     name: host_height
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The height of subject
     title: host height
     from_schema: https://w3id.org/mixs
+    keywords:
+    - height
+    - host
+    - host.
     slot_uri: MIXS:0000264
     alias: host_height
     owner: MigsPlSymbiontAssociated
@@ -3033,9 +3230,19 @@ attributes:
       partial_match: true
   host_length:
     name: host_length
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The length of subject
     title: host length
+    examples:
+    - value: 1 meter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - length
     slot_uri: MIXS:0000256
     alias: host_length
     owner: MigsPlSymbiontAssociated
@@ -3056,7 +3263,14 @@ attributes:
     name: host_growth_cond
     description: Literature reference giving growth conditions of the host
     title: host growth conditions
+    examples:
+    - value: https://academic.oup.com/icesjms/article/68/2/349/617247
     from_schema: https://w3id.org/mixs
+    keywords:
+    - condition
+    - growth
+    - host
+    - host.
     slot_uri: MIXS:0000871
     alias: host_growth_cond
     owner: MigsPlSymbiontAssociated
@@ -3073,7 +3287,12 @@ attributes:
     name: host_substrate
     description: The growth substrate of the host
     title: host substrate
+    examples:
+    - value: rock
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000252
     alias: host_substrate
     owner: MigsPlSymbiontAssociated
@@ -3138,6 +3357,9 @@ attributes:
     description: Observed genotype
     title: host genotype
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000365
     alias: host_genotype
     owner: MigsPlSymbiontAssociated
@@ -3214,6 +3436,9 @@ attributes:
     description: The color of host
     title: host color
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000260
     alias: host_color
     owner: MigsPlSymbiontAssociated
@@ -3225,7 +3450,12 @@ attributes:
     name: host_shape
     description: Morphological shape of host
     title: host shape
+    examples:
+    - value: round
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000261
     alias: host_shape
     owner: MigsPlSymbiontAssociated
@@ -3238,6 +3468,8 @@ attributes:
     description: Whether or not subject is gravid, and if yes date due or date post-conception,
       specifying which is used
     title: gravidity
+    examples:
+    - value: yes;due date:2018-05-11
     from_schema: https://w3id.org/mixs
     string_serialization: '{boolean};{timestamp}'
     slot_uri: MIXS:0000875
@@ -3700,12 +3932,20 @@ attributes:
       partial_match: true
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -3731,12 +3971,20 @@ attributes:
     range: string
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -3812,7 +4060,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MigsPlSymbiontAssociated
@@ -3926,7 +4180,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MigsPlSymbiontAssociated
@@ -3960,9 +4221,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc

@@ -1426,7 +1426,14 @@ attributes:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    examples:
+    - value: 5 liter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - size
     slot_uri: MIXS:0000001
     alias: samp_size
     owner: MimarksCFoodAnimalAndAnimalFeed
@@ -1558,6 +1565,10 @@ attributes:
       that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids
       (borrelia has 15+ plasmids)
     title: extrachromosomal elements
+    examples:
+    - value: '5'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000023
     alias: extrachrom_elements
@@ -1570,11 +1581,24 @@ attributes:
     range: integer
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimarksCFoodAnimalAndAnimalFeed
@@ -2335,12 +2359,23 @@ attributes:
       partial_match: true
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -2561,7 +2596,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksCFoodAnimalAndAnimalFeed
@@ -2612,9 +2654,19 @@ attributes:
     range: string
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -2662,12 +2714,20 @@ attributes:
     range: SampTransportContEnum
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -3357,7 +3417,12 @@ attributes:
       presence or enumeration of the target microbial analyte(s). Please provide a
       PubMed or DOI reference for published protocols
     title: enrichment protocol
+    examples:
+    - value: 'BAM Chapter 4: Enumeration of Escherichia coli and the Coliform Bacteria'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - enrichment
+    - protocol
     slot_uri: MIXS:0001177
     alias: enrichment_protocol
     owner: MimarksCFoodAnimalAndAnimalFeed
@@ -3403,11 +3468,20 @@ attributes:
     range: string
   food_contact_surf:
     name: food_contact_surf
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: FOODON:03500010
     description: The specific container or coating materials in direct contact with
       the food. Multiple values can be assigned.  This field accepts terms listed
       under food contact surface (http://purl.obolibrary.org/obo/FOODON_03500010)
     title: food contact surface
+    examples:
+    - value: cellulose acetate [FOODON:03500034]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - surface
     string_serialization: '{text}|{termLabel} [{termID}]'
     slot_uri: MIXS:0001131
     multivalued: true
@@ -3719,7 +3793,13 @@ attributes:
       quality descriptor and the output of a process. This field accepts terms listed
       under food product by quality (http://purl.obolibrary.org/obo/FOODON_00002454)
     title: food product by quality
+    examples:
+    - value: raw [FOODON:03311126]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - product
+    - quality
     slot_uri: MIXS:0001213
     alias: food_product_qual
     owner: MimarksCFoodAnimalAndAnimalFeed
@@ -4064,7 +4144,12 @@ attributes:
       RNA extracted from samples or dishes of cell cultures into one big aliquot of
       cells. Please provide a short description of the samples that were pooled
     title: sample pooling
+    examples:
+    - value: 5uL of extracted genomic DNA from 5 leaves were pooled
     from_schema: https://w3id.org/mixs
+    keywords:
+    - pooling
+    - sample
     slot_uri: MIXS:0001153
     multivalued: true
     alias: samp_pooling
@@ -4126,12 +4211,22 @@ attributes:
       partial_match: true
   samp_source_mat_cat:
     name: samp_source_mat_cat
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: GENEPIO:0001237
     description: This is the scientific role or category that the subject organism
       or material has with respect to an investigation.  This field accepts terms
       listed under specimen source material category (http://purl.obolibrary.org/obo/GENEPIO_0001237
       or http://purl.obolibrary.org/obo/OBI_0100051)
     title: sample source material category
+    examples:
+    - value: environmental (swab or sampling) [GENEPIO:0001732]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - material
+    - sample
+    - source
     string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0001154
     alias: samp_source_mat_cat
@@ -4144,11 +4239,21 @@ attributes:
     range: string
   samp_stor_device:
     name: samp_stor_device
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: NCIT:C4318
     description: The container used to store the  sample. This field accepts terms
       listed under container (http://purl.obolibrary.org/obo/NCIT_C43186). If the
       proper descriptor is not listed please use text to describe the storage device
     title: sample storage device
+    examples:
+    - value: Whirl Pak sampling bag [GENEPIO:0002122]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - device
+    - sample
+    - storage
     string_serialization: '{text}|{termLabel} [{termID}]'
     slot_uri: MIXS:0001228
     alias: samp_stor_device
@@ -4167,7 +4272,12 @@ attributes:
       If the proper descriptor is not listed please use text to describe the sample
       storage media
     title: sample storage media
+    examples:
+    - value: peptone water medium [MICRO:0000548]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - storage
     slot_uri: MIXS:0001229
     alias: samp_stor_media
     owner: MimarksCFoodAnimalAndAnimalFeed

@@ -1318,10 +1318,20 @@ attributes:
     required: true
   lib_screen:
     name: lib_screen
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: screening strategy name
     description: Specific enrichment or screening methods applied before and/or after
       creating libraries
     title: library screening strategy
+    examples:
+    - value: enriched, screened, normalized
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     string_serialization: '{text}'
     slot_uri: MIXS:0000043
     alias: lib_screen
@@ -1341,10 +1351,21 @@ attributes:
     range: string
   ref_db:
     name: ref_db
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names, versions, and references of databases
     description: List of database(s) used for ORF annotation, along with version number
       and reference to website or publication
     title: reference database(s)
+    examples:
+    - value: pVOGs;5;http://dmk-brain.ecn.uiowa.edu/pVOGs/ Grazziotin et al. 2017
+        doi:10.1093/nar/gkw975
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - database
     string_serialization: '{database};{version};{reference}'
     slot_uri: MIXS:0000062
     alias: ref_db
@@ -1394,7 +1415,14 @@ attributes:
     name: lib_size
     description: Total number of clones in the library prepared for the project
     title: library size
+    examples:
+    - value: '50'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
+    - size
     slot_uri: MIXS:0000039
     alias: lib_size
     owner: MigsViWater
@@ -1485,13 +1513,23 @@ attributes:
       partial_match: true
   compl_score:
     name: compl_score
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: quality;percent completeness
     description: 'Completeness score is typically based on either the fraction of
       markers found as compared to a database or the percent of a genome found as
       compared to a closely related reference genome. High Quality Draft: &gt;90%, Medium
       Quality Draft: &gt;50%, and Low Quality Draft: &lt; 50% should have the indicated
       completeness scores'
     title: completeness score
+    examples:
+    - value: med;60%
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - score
     string_serialization: '[high|med|low];{percentage}'
     slot_uri: MIXS:0000069
     alias: compl_score
@@ -1545,7 +1583,14 @@ attributes:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    examples:
+    - value: 5 liter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - size
     slot_uri: MIXS:0000001
     alias: samp_size
     owner: MigsViWater
@@ -1673,11 +1718,21 @@ attributes:
     recommended: true
   estimated_size:
     name: estimated_size
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: number of base pairs
     description: The estimated size of the genome prior to sequencing. Of particular
       importance in the sequencing of (eukaryotic) genome which could remain in draft
       form for a long or unspecified period
     title: estimated size
+    examples:
+    - value: 300000 bp
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - size
     string_serialization: '{integer} bp'
     slot_uri: MIXS:0000024
     alias: estimated_size
@@ -1692,11 +1747,24 @@ attributes:
     range: string
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MigsViWater
@@ -1762,7 +1830,13 @@ attributes:
     name: lib_reads_seqd
     description: Total number of clones sequenced from the library
     title: library reads sequenced
+    examples:
+    - value: '20'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     slot_uri: MIXS:0000040
     alias: lib_reads_seqd
     owner: MigsViWater
@@ -1848,7 +1922,13 @@ attributes:
     description: Total number of contigs in the cleaned/submitted assembly that makes
       up a given genome, SAG, MAG, or UViG
     title: number of contigs
+    examples:
+    - value: '40'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - number
     slot_uri: MIXS:0000060
     alias: number_contig
     owner: MigsViWater
@@ -1870,7 +1950,14 @@ attributes:
       species Y. The target organism is the subject of the relationship, and the other
       organism(s) is the object
     title: observed biotic relationship
+    examples:
+    - value: free living
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - observed
+    - relationship
     slot_uri: MIXS:0000028
     alias: biotic_relationship
     owner: MigsViWater
@@ -1904,7 +1991,13 @@ attributes:
     description: Specify whether to expect single, paired, or other configuration
       of reads
     title: library layout
+    examples:
+    - value: paired
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     slot_uri: MIXS:0000041
     alias: lib_layout
     owner: MigsViWater
@@ -1923,6 +2016,10 @@ attributes:
     range: LibLayoutEnum
   assembly_qual:
     name: assembly_qual
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: 'The assembly quality category is based on sets of criteria outlined
       for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
       contiguous sequence per replicon without gaps or ambiguities with a consensus
@@ -1941,7 +2038,13 @@ attributes:
       fragments, totalling &lt; 90% of the expected genome or replicon sequence, or for
       which no genome size could be estimated'
     title: assembly quality
+    examples:
+    - value: High-quality draft genome
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - quality
     string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
       draft genome|Low-quality draft genome|Genome fragment(s)]'
     slot_uri: MIXS:0000056
@@ -1964,6 +2067,10 @@ attributes:
     description: Primary publication if isolated before genome publication; otherwise,
       primary genome report
     title: reference for biomaterial
+    examples:
+    - value: doi:10.1016/j.syapm.2018.01.009
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000025
     alias: ref_biomaterial
@@ -2036,9 +2143,19 @@ attributes:
     required: true
   lib_vector:
     name: lib_vector
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: vector
     description: Cloning vector type(s) used in construction of libraries
     title: library vector
+    examples:
+    - value: Bacteriophage P1
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
     string_serialization: '{text}'
     slot_uri: MIXS:0000042
     alias: lib_vector
@@ -2271,7 +2388,14 @@ attributes:
     description: Method used to predict UViGs features such as ORFs, integration site,
       etc
     title: feature prediction
+    examples:
+    - value: Prodigal;2.6.3;default parameters
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - feature
+    - predict
     slot_uri: MIXS:0000061
     alias: feat_pred
     owner: MigsViWater
@@ -2334,9 +2458,19 @@ attributes:
     required: true
   compl_software:
     name: compl_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names and versions of software(s) used
     description: Tools used for completion estimate, i.e. checkm, anvi'o, busco
     title: completeness software
+    examples:
+    - value: checkm
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     string_serialization: '{software};{version}'
     slot_uri: MIXS:0000070
     alias: compl_software
@@ -2357,7 +2491,15 @@ attributes:
       or after retrieving the sample from environment, or a link to the relevant protocol(s)
       performed
     title: sample material processing
+    examples:
+    - value: filtering of seawater, storing samples in ethanol
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - material
+    - process
+    - sample
     slot_uri: MIXS:0000016
     alias: samp_mat_process
     owner: MigsViWater
@@ -2380,7 +2522,13 @@ attributes:
     description: Tool used to compare ORFs with database, along with version and cutoffs
       used
     title: similarity search method
+    examples:
+    - value: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - method
     slot_uri: MIXS:0000063
     alias: sim_search_meth
     owner: MigsViWater
@@ -2848,7 +2996,15 @@ attributes:
     description: Method used for taxonomic classification, along with reference database
       used, classification rank, and thresholds used to classify new genomes
     title: taxonomic classification
+    examples:
+    - value: vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification,
+        default parameters)
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - classification
+    - taxon
     slot_uri: MIXS:0000064
     alias: tax_class
     owner: MigsViWater
@@ -2865,12 +3021,23 @@ attributes:
     range: string
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -3009,6 +3176,8 @@ attributes:
     name: alkyl_diethers
     description: Concentration of alkyl diethers
     title: alkyl diethers
+    examples:
+    - value: 0.005 mole per liter
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000490
     alias: alkyl_diethers
@@ -3051,8 +3220,14 @@ attributes:
       partial_match: true
   ammonium:
     name: ammonium
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of ammonium in the sample
     title: ammonium
+    examples:
+    - value: 1.5 milligram per liter
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000427
     alias: ammonium
@@ -3094,7 +3269,12 @@ attributes:
     name: bacteria_carb_prod
     description: Measurement of bacterial carbon production
     title: bacterial carbon production
+    examples:
+    - value: 2.53 microgram per liter per hour
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - production
     slot_uri: MIXS:0000173
     alias: bacteria_carb_prod
     owner: MigsViWater
@@ -3290,12 +3470,20 @@ attributes:
     range: float
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -3577,7 +3765,13 @@ attributes:
     name: diss_inorg_phosp
     description: Concentration of dissolved inorganic phosphorus in the sample
     title: dissolved inorganic phosphorus
+    examples:
+    - value: 56.5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dissolved
+    - inorganic
+    - phosphorus
     slot_uri: MIXS:0000106
     alias: diss_inorg_phosp
     owner: MigsViWater
@@ -3629,7 +3823,13 @@ attributes:
     description: Dissolved organic nitrogen concentration measured as; total dissolved
       nitrogen - NH4 - NO3 - NO2
     title: dissolved organic nitrogen
+    examples:
+    - value: 0.05 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dissolved
+    - nitrogen
+    - organic
     slot_uri: MIXS:0000162
     alias: diss_org_nitro
     owner: MigsViWater
@@ -3903,8 +4103,14 @@ attributes:
     range: string
   n_alkanes:
     name: n_alkanes
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: n-alkane name;measurement value
     description: Concentration of n-alkanes; can include multiple n-alkanes
     title: n-alkanes
+    examples:
+    - value: n-hexadecane;100 milligram per liter
     from_schema: https://w3id.org/mixs
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000503
@@ -3918,9 +4124,17 @@ attributes:
     range: string
   nitrate:
     name: nitrate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrate in the sample
     title: nitrate
+    examples:
+    - value: 65 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrate
     slot_uri: MIXS:0000425
     alias: nitrate
     owner: MigsViWater
@@ -3941,9 +4155,17 @@ attributes:
       partial_match: true
   nitrite:
     name: nitrite
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrite in the sample
     title: nitrite
+    examples:
+    - value: 0.5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrite
     slot_uri: MIXS:0000426
     alias: nitrite
     owner: MigsViWater
@@ -3993,7 +4215,12 @@ attributes:
     name: org_carb
     description: Concentration of organic carbon
     title: organic carbon
+    examples:
+    - value: 1.5 microgram per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
     slot_uri: MIXS:0000508
     alias: org_carb
     owner: MigsViWater
@@ -4042,7 +4269,12 @@ attributes:
     name: org_nitro
     description: Concentration of organic nitrogen
     title: organic nitrogen
+    examples:
+    - value: 4 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - nitrogen
+    - organic
     slot_uri: MIXS:0000205
     alias: org_nitro
     owner: MigsViWater
@@ -4102,7 +4334,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MigsViWater
@@ -4130,7 +4368,11 @@ attributes:
     description: Ph measurement of the sample, or liquid portion of sample, or aqueous
       phase of the fluid
     title: pH
+    examples:
+    - value: '7.2'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - ph
     slot_uri: MIXS:0001001
     alias: ph
     owner: MigsViWater
@@ -4149,7 +4391,14 @@ attributes:
     name: part_org_carb
     description: Concentration of particulate organic carbon
     title: particulate organic carbon
+    examples:
+    - value: 1.92 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - carbon
+    - organic
+    - particle
+    - particulate
     slot_uri: MIXS:0000515
     alias: part_org_carb
     owner: MigsViWater
@@ -4194,12 +4443,20 @@ attributes:
       partial_match: true
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -4308,8 +4565,14 @@ attributes:
       partial_match: true
   phosplipid_fatt_acid:
     name: phosplipid_fatt_acid
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: phospholipid fatty acid name;measurement value
     description: Concentration of phospholipid fatty acids; can include multiple values
     title: phospholipid fatty acid
+    examples:
+    - value: 2.98 milligram per liter
     from_schema: https://w3id.org/mixs
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000181
@@ -4507,7 +4770,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MigsViWater
@@ -4541,9 +4811,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -4756,9 +5036,17 @@ attributes:
       partial_match: true
   sulfate:
     name: sulfate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of sulfate in the sample
     title: sulfate
+    examples:
+    - value: 5 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sulfate
     slot_uri: MIXS:0000423
     alias: sulfate
     owner: MigsViWater
@@ -4778,9 +5066,17 @@ attributes:
       partial_match: true
   sulfide:
     name: sulfide
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of sulfide in the sample
     title: sulfide
+    examples:
+    - value: 2 micromole per liter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sulfide
     slot_uri: MIXS:0000424
     alias: sulfide
     owner: MigsViWater
@@ -5016,6 +5312,8 @@ attributes:
     description: Measure of the amount of cloudiness or haziness in water caused by
       individual particles
     title: turbidity
+    examples:
+    - value: 0.3 nephelometric turbidity units
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000191
     alias: turbidity

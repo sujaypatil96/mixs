@@ -1648,10 +1648,21 @@ attributes:
     required: true
   ref_db:
     name: ref_db
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names, versions, and references of databases
     description: List of database(s) used for ORF annotation, along with version number
       and reference to website or publication
     title: reference database(s)
+    examples:
+    - value: pVOGs;5;http://dmk-brain.ecn.uiowa.edu/pVOGs/ Grazziotin et al. 2017
+        doi:10.1093/nar/gkw975
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - database
     string_serialization: '{database};{version};{reference}'
     slot_uri: MIXS:0000062
     alias: ref_db
@@ -1702,7 +1713,14 @@ attributes:
     name: lib_size
     description: Total number of clones in the library prepared for the project
     title: library size
+    examples:
+    - value: '50'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
+    - size
     slot_uri: MIXS:0000039
     alias: lib_size
     owner: MigsBaAgriculture
@@ -1795,13 +1813,23 @@ attributes:
       partial_match: true
   compl_score:
     name: compl_score
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: quality;percent completeness
     description: 'Completeness score is typically based on either the fraction of
       markers found as compared to a database or the percent of a genome found as
       compared to a closely related reference genome. High Quality Draft: &gt;90%, Medium
       Quality Draft: &gt;50%, and Low Quality Draft: &lt; 50% should have the indicated
       completeness scores'
     title: completeness score
+    examples:
+    - value: med;60%
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - score
     string_serialization: '[high|med|low];{percentage}'
     slot_uri: MIXS:0000069
     alias: compl_score
@@ -2002,11 +2030,21 @@ attributes:
     recommended: true
   estimated_size:
     name: estimated_size
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: number of base pairs
     description: The estimated size of the genome prior to sequencing. Of particular
       importance in the sequencing of (eukaryotic) genome which could remain in draft
       form for a long or unspecified period
     title: estimated size
+    examples:
+    - value: 300000 bp
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - size
     string_serialization: '{integer} bp'
     slot_uri: MIXS:0000024
     alias: estimated_size
@@ -2131,9 +2169,17 @@ attributes:
     recommended: true
   encoded_traits:
     name: encoded_traits
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: 'for plasmid: antibiotic resistance; for phage: converting genes'
     description: Should include key traits like antibiotic resistance or xenobiotic
       degradation phenotypes for plasmids, converting genes for phage
     title: encoded traits
+    examples:
+    - value: beta-lactamase class A
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     string_serialization: '{text}'
     slot_uri: MIXS:0000034
@@ -2614,7 +2660,14 @@ attributes:
     description: Method used to predict UViGs features such as ORFs, integration site,
       etc
     title: feature prediction
+    examples:
+    - value: Prodigal;2.6.3;default parameters
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - feature
+    - predict
     slot_uri: MIXS:0000061
     alias: feat_pred
     owner: MigsBaAgriculture
@@ -2677,9 +2730,19 @@ attributes:
     required: true
   compl_software:
     name: compl_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names and versions of software(s) used
     description: Tools used for completion estimate, i.e. checkm, anvi'o, busco
     title: completeness software
+    examples:
+    - value: checkm
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     string_serialization: '{software};{version}'
     slot_uri: MIXS:0000070
     alias: compl_software
@@ -2724,7 +2787,13 @@ attributes:
     description: Tool used to compare ORFs with database, along with version and cutoffs
       used
     title: similarity search method
+    examples:
+    - value: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - method
     slot_uri: MIXS:0000063
     alias: sim_search_meth
     owner: MigsBaAgriculture
@@ -3192,7 +3261,15 @@ attributes:
     description: Method used for taxonomic classification, along with reference database
       used, classification rank, and thresholds used to classify new genomes
     title: taxonomic classification
+    examples:
+    - value: vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification,
+        default parameters)
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - classification
+    - taxon
     slot_uri: MIXS:0000064
     alias: tax_class
     owner: MigsBaAgriculture
@@ -3209,12 +3286,23 @@ attributes:
     range: string
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -3433,9 +3521,18 @@ attributes:
     range: string
   soil_temp:
     name: soil_temp
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: degree Celsius
     description: Temperature of soil at the time of sampling
     title: soil temperature
+    examples:
+    - value: 25 degrees Celsius
     from_schema: https://w3id.org/mixs
+    keywords:
+    - soil
+    - temperature
     slot_uri: MIXS:0001163
     alias: soil_temp
     owner: MigsBaAgriculture
@@ -3939,7 +4036,12 @@ attributes:
       food production. This field accepts terms listed under food production (http://purl.obolibrary.org/obo/FOODON_03530206).
       Multiple terms may apply and can be separated by pipes
     title: food production system characteristics
+    examples:
+    - value: organic plant cultivation [FOODON:03530253]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - production
     slot_uri: MIXS:0001211
     multivalued: true
     alias: food_prod
@@ -5279,12 +5381,22 @@ attributes:
     required: true
   seq_quality_check:
     name: seq_quality_check
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: none or manually edited
     description: Indicate if the sequence has been called by automatic systems (none)
       or undergone a manual editing procedure (e.g. by inspecting the raw data or
       chromatograms). Applied only for sequences that are not submitted to SRA,ENA
       or DRA
     title: sequence quality check
+    examples:
+    - value: none
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - quality
     slot_uri: MIXS:0000051
     alias: seq_quality_check
     owner: MigsBaAgriculture
@@ -5681,10 +5793,19 @@ attributes:
       partial_match: true
   season_precpt:
     name: season_precpt
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: millimeter
     description: The average of all seasonal precipitation values known, or an estimated
       equivalent value derived by such methods as regional indexes or Isohyetal maps
     title: mean seasonal precipitation
+    examples:
+    - value: 75 millimeters
     from_schema: https://w3id.org/mixs
+    keywords:
+    - mean
+    - season
     slot_uri: MIXS:0000645
     alias: season_precpt
     owner: MigsBaAgriculture

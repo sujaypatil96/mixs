@@ -1122,9 +1122,20 @@ attributes:
     recommended: true
   size_frac:
     name: size_frac
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    examples:
+    - value: 0-0.22 micrometer
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - fraction
+    - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000017
     alias: size_frac
@@ -1443,11 +1454,24 @@ attributes:
     recommended: true
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimarksSSymbiontAssociated
@@ -1519,7 +1543,14 @@ attributes:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    examples:
+    - value: aerobe
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - relationship
     slot_uri: MIXS:0000015
     alias: rel_to_oxygen
     owner: MimarksSSymbiontAssociated
@@ -2527,10 +2558,18 @@ attributes:
     required: true
   host_age:
     name: host_age
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: year, day, hour
     description: Age of host at the time of sampling; relevant scale depends on species
       and study, e.g. Could be seconds for amoebae or centuries for trees
     title: host age
     from_schema: https://w3id.org/mixs
+    keywords:
+    - age
+    - host
+    - host.
     slot_uri: MIXS:0000255
     alias: host_age
     owner: MimarksSSymbiontAssociated
@@ -2670,9 +2709,18 @@ attributes:
     range: string
   host_tot_mass:
     name: host_tot_mass
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: kilogram, gram
     description: Total mass of the host at collection, the unit depends on host
     title: host total mass
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - mass
+    - total
     slot_uri: MIXS:0000263
     alias: host_tot_mass
     owner: MimarksSSymbiontAssociated
@@ -2696,9 +2744,17 @@ attributes:
       partial_match: true
   host_height:
     name: host_height
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The height of subject
     title: host height
     from_schema: https://w3id.org/mixs
+    keywords:
+    - height
+    - host
+    - host.
     slot_uri: MIXS:0000264
     alias: host_height
     owner: MimarksSSymbiontAssociated
@@ -2722,9 +2778,19 @@ attributes:
       partial_match: true
   host_length:
     name: host_length
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The length of subject
     title: host length
+    examples:
+    - value: 1 meter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - length
     slot_uri: MIXS:0000256
     alias: host_length
     owner: MimarksSSymbiontAssociated
@@ -2745,7 +2811,14 @@ attributes:
     name: host_growth_cond
     description: Literature reference giving growth conditions of the host
     title: host growth conditions
+    examples:
+    - value: https://academic.oup.com/icesjms/article/68/2/349/617247
     from_schema: https://w3id.org/mixs
+    keywords:
+    - condition
+    - growth
+    - host
+    - host.
     slot_uri: MIXS:0000871
     alias: host_growth_cond
     owner: MimarksSSymbiontAssociated
@@ -2762,7 +2835,12 @@ attributes:
     name: host_substrate
     description: The growth substrate of the host
     title: host substrate
+    examples:
+    - value: rock
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000252
     alias: host_substrate
     owner: MimarksSSymbiontAssociated
@@ -2827,6 +2905,9 @@ attributes:
     description: Observed genotype
     title: host genotype
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000365
     alias: host_genotype
     owner: MimarksSSymbiontAssociated
@@ -2903,6 +2984,9 @@ attributes:
     description: The color of host
     title: host color
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000260
     alias: host_color
     owner: MimarksSSymbiontAssociated
@@ -2914,7 +2998,12 @@ attributes:
     name: host_shape
     description: Morphological shape of host
     title: host shape
+    examples:
+    - value: round
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     slot_uri: MIXS:0000261
     alias: host_shape
     owner: MimarksSSymbiontAssociated
@@ -2927,6 +3016,8 @@ attributes:
     description: Whether or not subject is gravid, and if yes date due or date post-conception,
       specifying which is used
     title: gravidity
+    examples:
+    - value: yes;due date:2018-05-11
     from_schema: https://w3id.org/mixs
     string_serialization: '{boolean};{timestamp}'
     slot_uri: MIXS:0000875
@@ -3389,12 +3480,20 @@ attributes:
       partial_match: true
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -3420,12 +3519,20 @@ attributes:
     range: string
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -3501,7 +3608,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MimarksSSymbiontAssociated
@@ -3615,7 +3728,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksSSymbiontAssociated
@@ -3649,9 +3769,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc

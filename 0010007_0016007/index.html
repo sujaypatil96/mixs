@@ -1012,9 +1012,20 @@ attributes:
     required: true
   size_frac:
     name: size_frac
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    examples:
+    - value: 0-0.22 micrometer
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - fraction
+    - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000017
     alias: size_frac
@@ -1052,10 +1063,21 @@ attributes:
     recommended: true
   ref_db:
     name: ref_db
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names, versions, and references of databases
     description: List of database(s) used for ORF annotation, along with version number
       and reference to website or publication
     title: reference database(s)
+    examples:
+    - value: pVOGs;5;http://dmk-brain.ecn.uiowa.edu/pVOGs/ Grazziotin et al. 2017
+        doi:10.1093/nar/gkw975
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - database
     string_serialization: '{database};{version};{reference}'
     slot_uri: MIXS:0000062
     alias: ref_db
@@ -1362,11 +1384,24 @@ attributes:
     recommended: true
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimsHumanVaginal
@@ -1438,7 +1473,14 @@ attributes:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    examples:
+    - value: aerobe
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - relationship
     slot_uri: MIXS:0000015
     alias: rel_to_oxygen
     owner: MimsHumanVaginal
@@ -1570,6 +1612,10 @@ attributes:
     description: Primary publication if isolated before genome publication; otherwise,
       primary genome report
     title: reference for biomaterial
+    examples:
+    - value: doi:10.1016/j.syapm.2018.01.009
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000025
     alias: ref_biomaterial
@@ -1802,7 +1848,14 @@ attributes:
     description: Method used to predict UViGs features such as ORFs, integration site,
       etc
     title: feature prediction
+    examples:
+    - value: Prodigal;2.6.3;default parameters
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - feature
+    - predict
     slot_uri: MIXS:0000061
     alias: feat_pred
     owner: MimsHumanVaginal
@@ -1893,7 +1946,13 @@ attributes:
     description: Tool used to compare ORFs with database, along with version and cutoffs
       used
     title: similarity search method
+    examples:
+    - value: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - method
     slot_uri: MIXS:0000063
     alias: sim_search_meth
     owner: MimsHumanVaginal
@@ -2313,7 +2372,15 @@ attributes:
     description: Method used for taxonomic classification, along with reference database
       used, classification rank, and thresholds used to classify new genomes
     title: taxonomic classification
+    examples:
+    - value: vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification,
+        default parameters)
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - classification
+    - taxon
     slot_uri: MIXS:0000064
     alias: tax_class
     owner: MimsHumanVaginal
@@ -2694,12 +2761,20 @@ attributes:
     range: integer
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -3095,12 +3170,20 @@ attributes:
       partial_match: true
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -3176,7 +3259,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MimsHumanVaginal
@@ -3287,9 +3376,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -3321,7 +3420,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimsHumanVaginal

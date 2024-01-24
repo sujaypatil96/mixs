@@ -1859,6 +1859,10 @@ attributes:
       that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids
       (borrelia has 15+ plasmids)
     title: extrachromosomal elements
+    examples:
+    - value: '5'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000023
     alias: extrachrom_elements
@@ -2640,12 +2644,23 @@ attributes:
       partial_match: true
   experimental_factor:
     name: experimental_factor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text or EFO and/or OBI
     description: Variable aspects of an experiment design that can be used to describe
       an experiment, or set of experiments, in an increasingly detailed manner. This
       field accepts ontology terms from Experimental Factor Ontology (EFO) and/or
       Ontology for Biomedical Investigations (OBI)
     title: experimental factor
+    examples:
+    - value: time series design [EFO:0001779]
+    in_subset:
+    - investigation
     from_schema: https://w3id.org/mixs
+    keywords:
+    - experimental
+    - factor
     string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000008
     multivalued: true
@@ -2878,9 +2893,18 @@ attributes:
     range: string
   soil_temp:
     name: soil_temp
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: degree Celsius
     description: Temperature of soil at the time of sampling
     title: soil temperature
+    examples:
+    - value: 25 degrees Celsius
     from_schema: https://w3id.org/mixs
+    keywords:
+    - soil
+    - temperature
     slot_uri: MIXS:0001163
     alias: soil_temp
     owner: MimarksCAgriculture
@@ -3414,7 +3438,12 @@ attributes:
       food production. This field accepts terms listed under food production (http://purl.obolibrary.org/obo/FOODON_03530206).
       Multiple terms may apply and can be separated by pipes
     title: food production system characteristics
+    examples:
+    - value: organic plant cultivation [FOODON:03530253]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - production
     slot_uri: MIXS:0001211
     multivalued: true
     alias: food_prod
@@ -4723,7 +4752,14 @@ attributes:
     name: lib_size
     description: Total number of clones in the library prepared for the project
     title: library size
+    examples:
+    - value: '50'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - library
+    - size
     slot_uri: MIXS:0000039
     alias: lib_size
     owner: MimarksCAgriculture
@@ -4906,6 +4942,10 @@ attributes:
     required: true
   assembly_qual:
     name: assembly_qual
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: 'The assembly quality category is based on sets of criteria outlined
       for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
       contiguous sequence per replicon without gaps or ambiguities with a consensus
@@ -4924,7 +4964,13 @@ attributes:
       fragments, totalling &lt; 90% of the expected genome or replicon sequence, or for
       which no genome size could be estimated'
     title: assembly quality
+    examples:
+    - value: High-quality draft genome
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - quality
     string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
       draft genome|Low-quality draft genome|Genome fragment(s)]'
     slot_uri: MIXS:0000056
@@ -4946,7 +4992,13 @@ attributes:
     name: assembly_software
     description: Tool(s) used for assembly, including version number and parameters
     title: assembly software
+    examples:
+    - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters otherwise
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     slot_uri: MIXS:0000058
     alias: assembly_software
     owner: MimarksCAgriculture
@@ -5359,10 +5411,19 @@ attributes:
       partial_match: true
   season_precpt:
     name: season_precpt
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: millimeter
     description: The average of all seasonal precipitation values known, or an estimated
       equivalent value derived by such methods as regional indexes or Isohyetal maps
     title: mean seasonal precipitation
+    examples:
+    - value: 75 millimeters
     from_schema: https://w3id.org/mixs
+    keywords:
+    - mean
+    - season
     slot_uri: MIXS:0000645
     alias: season_precpt
     owner: MimarksCAgriculture

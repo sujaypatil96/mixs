@@ -1266,9 +1266,20 @@ attributes:
     recommended: true
   size_frac:
     name: size_frac
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    examples:
+    - value: 0-0.22 micrometer
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - fraction
+    - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000017
     alias: size_frac
@@ -1665,7 +1676,14 @@ attributes:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    examples:
+    - value: aerobe
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - relationship
     slot_uri: MIXS:0000015
     alias: rel_to_oxygen
     owner: MimarksSHydrocarbonResourcesFluidsSwabs
@@ -3277,7 +3295,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MimarksSHydrocarbonResourcesFluidsSwabs
@@ -3402,7 +3426,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksSHydrocarbonResourcesFluidsSwabs
@@ -3436,9 +3467,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc

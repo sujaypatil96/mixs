@@ -1740,9 +1740,19 @@ attributes:
     recommended: true
   trnas:
     name: trnas
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: value from 0-21
     description: The total number of tRNAs identified from the SAG or MAG
     title: number of standard tRNAs extracted
+    examples:
+    - value: '18'
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - number
     string_serialization: '{integer}'
     slot_uri: MIXS:0000067
     alias: trnas
@@ -1858,11 +1868,21 @@ attributes:
       partial_match: true
   estimated_size:
     name: estimated_size
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: number of base pairs
     description: The estimated size of the genome prior to sequencing. Of particular
       importance in the sequencing of (eukaryotic) genome which could remain in draft
       form for a long or unspecified period
     title: estimated size
+    examples:
+    - value: 300000 bp
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - size
     string_serialization: '{integer} bp'
     slot_uri: MIXS:0000024
     alias: estimated_size
@@ -1914,11 +1934,24 @@ attributes:
     recommended: true
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -1965,8 +1998,16 @@ attributes:
       partial_match: true
   pathogenicity:
     name: pathogenicity
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names of organisms that the entity is pathogenic to
     description: To what is the entity pathogenic
     title: known pathogenicity
+    examples:
+    - value: human, animal, plant, fungi, bacteria
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     string_serialization: '{text}'
     slot_uri: MIXS:0000027
@@ -2061,7 +2102,14 @@ attributes:
       species Y. The target organism is the subject of the relationship, and the other
       organism(s) is the object
     title: observed biotic relationship
+    examples:
+    - value: free living
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - observed
+    - relationship
     slot_uri: MIXS:0000028
     alias: biotic_relationship
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -2077,7 +2125,13 @@ attributes:
     name: trna_ext_software
     description: Tools used for tRNA identification
     title: tRNA extraction software
+    examples:
+    - value: infernal;v2;default parameters
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     slot_uri: MIXS:0000068
     alias: trna_ext_software
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -2158,6 +2212,10 @@ attributes:
     description: Primary publication if isolated before genome publication; otherwise,
       primary genome report
     title: reference for biomaterial
+    examples:
+    - value: doi:10.1016/j.syapm.2018.01.009
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
     slot_uri: MIXS:0000025
     alias: ref_biomaterial
@@ -2253,10 +2311,22 @@ attributes:
     recommended: true
   host_spec_range:
     name: host_spec_range
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: NCBI taxid
     description: The range and diversity of host species that an organism is capable
       of infecting, defined by NCBI taxonomy identifier
     title: host specificity or range
+    examples:
+    - value: '9606'
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - range
     string_serialization: '{integer}'
     slot_uri: MIXS:0000030
     multivalued: true
@@ -2370,7 +2440,16 @@ attributes:
     description: The phylogenetic marker(s) used to assign an organism name to the
       SAG or MAG
     title: taxonomic identity marker
+    examples:
+    - value: other
+      description: was other &lt;colon&gt; rpoB gene
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - identifier
+    - marker
+    - taxon
     slot_uri: MIXS:0000053
     alias: tax_ident
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -2386,10 +2465,18 @@ attributes:
     range: TaxIdentEnum
   annot:
     name: annot
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name of tool or pipeline used, or annotation source description
     description: Tool used for annotation, or for cases where annotation was provided
       by a community jamboree or model organism database rather than by a specific
       submitter
     title: annotation
+    examples:
+    - value: prokka
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
     string_serialization: '{text}'
     slot_uri: MIXS:0000059
@@ -2463,9 +2550,19 @@ attributes:
       partial_match: true
   compl_software:
     name: compl_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names and versions of software(s) used
     description: Tools used for completion estimate, i.e. checkm, anvi'o, busco
     title: completeness software
+    examples:
+    - value: checkm
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     string_serialization: '{software};{version}'
     slot_uri: MIXS:0000070
     alias: compl_software
@@ -2697,9 +2794,20 @@ attributes:
     recommended: true
   specific_host:
     name: specific_host
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: host scientific name, taxonomy ID
     description: Report the host's taxonomic name and/or NCBI taxonomy ID
     title: host scientific name
+    examples:
+    - value: Homo sapiens and/or 9606
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
     string_serialization: '{text}|{NCBI taxid}'
     slot_uri: MIXS:0000029
     alias: specific_host
@@ -3199,7 +3307,13 @@ attributes:
     description: Tool(s) used to determine the genome coverage if coverage is used
       as a binning parameter in the extraction of genomes from metagenomic datasets
     title: MAG coverage software
+    examples:
+    - value: bbmap
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - software
     slot_uri: MIXS:0000080
     alias: mag_cov_software
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -3512,7 +3626,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -3563,9 +3684,19 @@ attributes:
     range: string
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
@@ -3613,12 +3744,20 @@ attributes:
     range: SampTransportContEnum
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -4308,7 +4447,12 @@ attributes:
       presence or enumeration of the target microbial analyte(s). Please provide a
       PubMed or DOI reference for published protocols
     title: enrichment protocol
+    examples:
+    - value: 'BAM Chapter 4: Enumeration of Escherichia coli and the Coliform Bacteria'
     from_schema: https://w3id.org/mixs
+    keywords:
+    - enrichment
+    - protocol
     slot_uri: MIXS:0001177
     alias: enrichment_protocol
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -4354,11 +4498,20 @@ attributes:
     range: string
   food_contact_surf:
     name: food_contact_surf
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: FOODON:03500010
     description: The specific container or coating materials in direct contact with
       the food. Multiple values can be assigned.  This field accepts terms listed
       under food contact surface (http://purl.obolibrary.org/obo/FOODON_03500010)
     title: food contact surface
+    examples:
+    - value: cellulose acetate [FOODON:03500034]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - surface
     string_serialization: '{text}|{termLabel} [{termID}]'
     slot_uri: MIXS:0001131
     multivalued: true
@@ -4670,7 +4823,13 @@ attributes:
       quality descriptor and the output of a process. This field accepts terms listed
       under food product by quality (http://purl.obolibrary.org/obo/FOODON_00002454)
     title: food product by quality
+    examples:
+    - value: raw [FOODON:03311126]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - product
+    - quality
     slot_uri: MIXS:0001213
     alias: food_product_qual
     owner: MiuvigFoodAnimalAndAnimalFeed
@@ -5015,7 +5174,12 @@ attributes:
       RNA extracted from samples or dishes of cell cultures into one big aliquot of
       cells. Please provide a short description of the samples that were pooled
     title: sample pooling
+    examples:
+    - value: 5uL of extracted genomic DNA from 5 leaves were pooled
     from_schema: https://w3id.org/mixs
+    keywords:
+    - pooling
+    - sample
     slot_uri: MIXS:0001153
     multivalued: true
     alias: samp_pooling
@@ -5077,12 +5241,22 @@ attributes:
       partial_match: true
   samp_source_mat_cat:
     name: samp_source_mat_cat
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: GENEPIO:0001237
     description: This is the scientific role or category that the subject organism
       or material has with respect to an investigation.  This field accepts terms
       listed under specimen source material category (http://purl.obolibrary.org/obo/GENEPIO_0001237
       or http://purl.obolibrary.org/obo/OBI_0100051)
     title: sample source material category
+    examples:
+    - value: environmental (swab or sampling) [GENEPIO:0001732]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - material
+    - sample
+    - source
     string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0001154
     alias: samp_source_mat_cat
@@ -5095,11 +5269,21 @@ attributes:
     range: string
   samp_stor_device:
     name: samp_stor_device
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: NCIT:C4318
     description: The container used to store the  sample. This field accepts terms
       listed under container (http://purl.obolibrary.org/obo/NCIT_C43186). If the
       proper descriptor is not listed please use text to describe the storage device
     title: sample storage device
+    examples:
+    - value: Whirl Pak sampling bag [GENEPIO:0002122]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - device
+    - sample
+    - storage
     string_serialization: '{text}|{termLabel} [{termID}]'
     slot_uri: MIXS:0001228
     alias: samp_stor_device
@@ -5118,7 +5302,12 @@ attributes:
       If the proper descriptor is not listed please use text to describe the sample
       storage media
     title: sample storage media
+    examples:
+    - value: peptone water medium [MICRO:0000548]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - sample
+    - storage
     slot_uri: MIXS:0001229
     alias: samp_stor_media
     owner: MiuvigFoodAnimalAndAnimalFeed

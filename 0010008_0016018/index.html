@@ -1567,9 +1567,20 @@ attributes:
     recommended: true
   size_frac:
     name: size_frac
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    examples:
+    - value: 0-0.22 micrometer
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - fraction
+    - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000017
     alias: size_frac
@@ -1973,7 +1984,14 @@ attributes:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    examples:
+    - value: aerobe
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - relationship
     slot_uri: MIXS:0000015
     alias: rel_to_oxygen
     owner: MimarksSAgriculture
@@ -2986,9 +3004,18 @@ attributes:
     range: string
   soil_temp:
     name: soil_temp
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: degree Celsius
     description: Temperature of soil at the time of sampling
     title: soil temperature
+    examples:
+    - value: 25 degrees Celsius
     from_schema: https://w3id.org/mixs
+    keywords:
+    - soil
+    - temperature
     slot_uri: MIXS:0001163
     alias: soil_temp
     owner: MimarksSAgriculture
@@ -3522,7 +3549,12 @@ attributes:
       food production. This field accepts terms listed under food production (http://purl.obolibrary.org/obo/FOODON_03530206).
       Multiple terms may apply and can be separated by pipes
     title: food production system characteristics
+    examples:
+    - value: organic plant cultivation [FOODON:03530253]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - food
+    - production
     slot_uri: MIXS:0001211
     multivalued: true
     alias: food_prod
@@ -4492,7 +4524,15 @@ attributes:
       identifier (doi) or url for isolation and growth condition specifications of
       the organism/material
     title: isolation and growth condition
+    examples:
+    - value: doi:10.1016/j.syapm.2018.01.009
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - condition
+    - growth
+    - isolation
     slot_uri: MIXS:0000003
     alias: isol_growth_condt
     owner: MimarksSAgriculture
@@ -4912,6 +4952,10 @@ attributes:
     required: true
   assembly_qual:
     name: assembly_qual
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: 'The assembly quality category is based on sets of criteria outlined
       for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
       contiguous sequence per replicon without gaps or ambiguities with a consensus
@@ -4930,7 +4974,13 @@ attributes:
       fragments, totalling &lt; 90% of the expected genome or replicon sequence, or for
       which no genome size could be estimated'
     title: assembly quality
+    examples:
+    - value: High-quality draft genome
+    in_subset:
+    - sequencing
     from_schema: https://w3id.org/mixs
+    keywords:
+    - quality
     string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
       draft genome|Low-quality draft genome|Genome fragment(s)]'
     slot_uri: MIXS:0000056
@@ -5339,10 +5389,19 @@ attributes:
       partial_match: true
   season_precpt:
     name: season_precpt
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: millimeter
     description: The average of all seasonal precipitation values known, or an estimated
       equivalent value derived by such methods as regional indexes or Isohyetal maps
     title: mean seasonal precipitation
+    examples:
+    - value: 75 millimeters
     from_schema: https://w3id.org/mixs
+    keywords:
+    - mean
+    - season
     slot_uri: MIXS:0000645
     alias: season_precpt
     owner: MimarksSAgriculture

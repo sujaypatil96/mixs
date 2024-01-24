@@ -1188,9 +1188,20 @@ attributes:
     recommended: true
   size_frac:
     name: size_frac
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    examples:
+    - value: 0-0.22 micrometer
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - fraction
+    - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000017
     alias: size_frac
@@ -1509,11 +1520,24 @@ attributes:
     recommended: true
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     description: 'Volume (ml) or mass (g) of total collected sample processed for
       DNA extraction. Note: total sample collected should be entered under the term
       Sample Size (MIXS:0000001)'
     title: sample volume or weight for DNA extraction
+    examples:
+    - value: 1500 milliliter
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - dna
+    - sample
+    - volume
+    - weight
     slot_uri: MIXS:0000111
     alias: samp_vol_we_dna_ext
     owner: MimarksSPlantAssociated
@@ -1585,7 +1609,14 @@ attributes:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    examples:
+    - value: aerobe
+    in_subset:
+    - nucleic acid sequence source
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - relationship
     slot_uri: MIXS:0000015
     alias: rel_to_oxygen
     owner: MimarksSPlantAssociated
@@ -2560,7 +2591,11 @@ attributes:
     description: Information about treatment(s) involving use of biotic factors, such
       as bacteria, viruses or fungi
     title: biotic regimen
+    examples:
+    - value: sample inoculated with Rhizobium spp. Culture
     from_schema: https://w3id.org/mixs
+    keywords:
+    - regimen
     slot_uri: MIXS:0001038
     multivalued: true
     alias: biotic_regm
@@ -2571,12 +2606,20 @@ attributes:
     range: string
   chem_administration:
     name: chem_administration
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: CHEBI;timestamp
     description: List of chemical compounds administered to the host or site where
       sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can
       include multiple compounds. For chemical entities of biological interest ontology
       (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
     title: chemical administration
+    examples:
+    - value: agar [CHEBI:2509];2018-05-11T20:00Z
     from_schema: https://w3id.org/mixs
+    keywords:
+    - administration
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: MIXS:0000751
     multivalued: true
@@ -3053,9 +3096,19 @@ attributes:
     range: string
   host_length:
     name: host_length
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The length of subject
     title: host length
+    examples:
+    - value: 1 meter
     from_schema: https://w3id.org/mixs
+    keywords:
+    - host
+    - host.
+    - length
     slot_uri: MIXS:0000256
     alias: host_length
     owner: MimarksSPlantAssociated
@@ -3397,7 +3450,13 @@ attributes:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    examples:
+    - value: aerobic
     from_schema: https://w3id.org/mixs
+    keywords:
+    - oxygen
+    - sample
+    - status
     slot_uri: MIXS:0000753
     alias: oxy_stat_samp
     owner: MimarksSPlantAssociated
@@ -3439,12 +3498,20 @@ attributes:
     range: string
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
       of the entire perturbation period; can include multiple perturbation types
     title: perturbation
+    examples:
+    - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
@@ -3511,9 +3578,18 @@ attributes:
     range: string
   plant_product:
     name: plant_product
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: product name
     description: Substance produced by the plant, where the sample was obtained from
     title: plant product
+    examples:
+    - value: xylem sap [PO:0025539]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - plant
+    - product
     string_serialization: '{text}'
     slot_uri: MIXS:0001058
     alias: plant_product
@@ -3545,7 +3621,11 @@ attributes:
       e.g. petiole epidermis (PO_0000051). If an individual flower is sampled, the
       sex of it can be recorded here
     title: plant structure
+    examples:
+    - value: epidermis [PO:0005679]
     from_schema: https://w3id.org/mixs
+    keywords:
+    - plant
     slot_uri: MIXS:0001060
     alias: plant_struc
     owner: MimarksSPlantAssociated
@@ -3894,7 +3974,14 @@ attributes:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    examples:
+    - value: P1Y6M
     from_schema: https://w3id.org/mixs
+    keywords:
+    - duration
+    - period
+    - sample
+    - storage
     slot_uri: MIXS:0000116
     alias: samp_store_dur
     owner: MimarksSPlantAssociated
@@ -3928,9 +4015,19 @@ attributes:
       partial_match: true
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    examples:
+    - value: Freezer no:5
     from_schema: https://w3id.org/mixs
+    keywords:
+    - location
+    - sample
+    - storage
     string_serialization: '{text}'
     slot_uri: MIXS:0000755
     alias: samp_store_loc
