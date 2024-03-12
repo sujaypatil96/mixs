@@ -32,9 +32,9 @@ URI: {{ gen.uri_link(element) }}
 {% set classes_by_slot = schemaview.get_classes_by_slot(element) %}
 {% if classes_by_slot %}
 
-## Applicable Checklists and Extensions
+## Applicable [Checklists](index.md#checklists) and [Extensions](index.md#extensions)
 
-<b>NOTE:</b> does not include Combinations that use <i>{{ element.name }}</i>.
+<b>NOTE:</b> does not include [Combinations](combinations.md) (of checklists and extensions) that use {{ element.name }}.
 
 | Name | Description | Checklist/Extension |
 | --- | --- | --- |
