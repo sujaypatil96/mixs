@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
     
     
       
@@ -324,6 +324,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linkml-source" class="md-nav__link">
     <span class="md-ellipsis">
       LinkML Source
@@ -375,7 +399,7 @@
 
 
 <h1 id="extension-food-farm-environment-foodfarmenvironment">Extension: food-farm environment (FoodFarmEnvironment)</h1>
-<p><em>food-farm environment extension</em></p>
+<p><em>A collection of terms appropriate when collecting samples and performing sequencing of samples  obtained from the farm environment, including soil, manure, and food harvesting equipment.</em></p>
 <h2 id="terms">Terms</h2>
 <table>
 <thead>
@@ -1229,6 +1253,14 @@
 </tr>
 </tbody>
 </table>
+<h2 id="aliases">Aliases</h2>
+<ul>
+<li>MIxS-Food (farm environment)</li>
+</ul>
+<h3 id="annotations">Annotations</h3>
+<ul>
+<li>use_cases: Microbiome of farm and field crops as well as environmental samples including irrigation, soil amendments, and farm equipment.</li>
+</ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
@@ -1236,9 +1268,22 @@
 <details>
 
 <pre><code class="language-yaml">name: FoodFarmEnvironment
-description: food-farm environment extension
+annotations:
+  use_cases:
+    tag: use_cases
+    value: Microbiome of farm and field crops as well as environmental samples including
+      irrigation, soil amendments, and farm equipment.
+description: A collection of terms appropriate when collecting samples and performing
+  sequencing of samples  obtained from the farm environment, including soil, manure,
+  and food harvesting equipment.
 title: food-farm environment
+comments:
+- This extension is intended to work alongside the other food extensions (animals
+  and animal feed, food production facility, and human foods) for capturing contextual
+  data across the food supply-chain environment.
 from_schema: https://w3id.org/mixs
+aliases:
+- MIxS-Food (farm environment)
 is_a: Extension
 slots:
 - samp_name
@@ -1702,9 +1747,22 @@ class_uri: MIXS:0016020
 <details>
 
 <pre><code class="language-yaml">name: FoodFarmEnvironment
-description: food-farm environment extension
+annotations:
+  use_cases:
+    tag: use_cases
+    value: Microbiome of farm and field crops as well as environmental samples including
+      irrigation, soil amendments, and farm equipment.
+description: A collection of terms appropriate when collecting samples and performing
+  sequencing of samples  obtained from the farm environment, including soil, manure,
+  and food harvesting equipment.
 title: food-farm environment
+comments:
+- This extension is intended to work alongside the other food extensions (animals
+  and animal feed, food production facility, and human foods) for capturing contextual
+  data across the food supply-chain environment.
 from_schema: https://w3id.org/mixs
+aliases:
+- MIxS-Food (farm environment)
 is_a: Extension
 slot_usage:
   biotic_regm:
@@ -5849,7 +5907,7 @@ class_uri: MIXS:0016020
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "search.suggest"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
